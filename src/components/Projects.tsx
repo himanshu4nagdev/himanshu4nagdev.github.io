@@ -38,6 +38,7 @@ const Projects = () => {
       title: "Loveable.dev Projects",
       image: loveableImage,
       description: "AI-powered development solutions"
+      link: "https://himanshu4nagdev.github.io/loveable_projects_page/"
     },
     {
       title: "Cursor + MCP Projects",
