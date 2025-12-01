@@ -74,7 +74,9 @@ const BookAppointment = () => {
               Ready to collaborate on innovative solutions? Let's discuss your project or learning goals.
             </p>
             <a
-              href="mailto:himanshunagdev.hn@gmail.com"
+              href="https://topmate.io/himanshu_nagdev"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-8 py-4 bg-accent text-accent-foreground rounded-full font-medium hover:glow-secondary transition-all duration-300 hover:scale-105 text-lg"
             >
               Schedule a Consultation
