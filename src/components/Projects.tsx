@@ -23,6 +23,7 @@ const Projects = () => {
       title: "Glide Projects",
       image: glideImage,
       description: "No-code mobile app development",
+      link: "https://himanshu4nagdev.github.io/glide_projects_page/"
     },
     {
       title: "Bubble Projects",
