@@ -15,11 +15,11 @@ const Footer = () => {
             <h3 className="text-xl font-display mb-4 text-primary">Connect</h3>
             <div className="space-y-3">
               <a 
-                href="mailto:himanshunagdev.hn@gmail.com"
+                href="mailto:himanshu@iiitd.ac.in"
                 className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                himanshunagdev.hn@gmail.com
+                himanshu@iiitd.ac.in
               </a>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="w-4 h-4" />

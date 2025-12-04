@@ -32,7 +32,7 @@ const About = () => {
             </p>
             
             <p className="text-lg text-foreground leading-relaxed mt-6">
-              Beyond my technical roles, I take pride in teaching and mentoring. I started during my graduation days on YouTube, helping friends prepare for exams the night before. I recently taught mechatronics to school students and guide peers by sharing knowledge on deployments to inspire the next generation of engineers at IIITD.
+              Beyond my technical roles, I take pride in teaching and mentoring. I started during my graduation days on YouTube, helping friends prepare for exams the night before. "I have now streamlined all my efforts toward creating production-ready deployments and performing rigorous QA on them at the Centre of AI, IIITD
             </p>
             
             <p className="text-lg text-foreground leading-relaxed mt-6 font-medium">
