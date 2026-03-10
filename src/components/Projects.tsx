@@ -24,7 +24,7 @@ const Projects = () => {
       link: "https://docs.google.com/presentation/d/1QGCqRpiHgqcnZ8hsIVT_cswYqeWZfCBlRFAF4qYs_tk/edit?usp=sharing"
     },
     {
-      title: "Robotics Projects",
+      title: "Robotic Projects",
       image: roboticsImage,
       description: "Autonomous robots and intelligent automation",
       link: "https://docs.google.com/presentation/d/1eJa2t4mozf3ymmWC-tmZ6ZYFcCXb8wVMP8BLcPfOXhs/edit?usp=sharing"
