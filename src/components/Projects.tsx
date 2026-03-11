@@ -44,7 +44,8 @@ const Projects = () => {
     {
       title: "Glide Projects",
       image: glideImage,
-      description: "No-code mobile app development"
+      description: "No-code mobile app development",
+      link: "https://docs.google.com/presentation/d/1_Lv-HhzHJAPCmXbm0FR0RNnNOTrch5PrHyhm65pJ-Jg/edit?usp=sharing"
     },
     {
       title: "Bubble Projects",
@@ -61,7 +62,8 @@ const Projects = () => {
     {
       title: "Loveable.dev Projects",
       image: loveableImage,
-      description: "AI-powered development solutions"
+      description: "AI-powered development solutions",
+      link: "https://docs.google.com/presentation/d/1JvG4QAKO4bHLypCQbqJhOMQlIsOiMuVGdikAdmldcYw/edit?usp=sharing"
     },
     {
       title: "Cursor + MCP Projects",
@@ -72,7 +74,20 @@ const Projects = () => {
     {
       title: "VLSI Projects",
       image: vlsiImage,
-      description: "Chip design and semiconductor solutions"
+      description: "Chip design and semiconductor solutions",
+      link: "https://docs.google.com/presentation/d/1JTPiTS5yP2fKHkDeI7En4o7-kVIAuXNVXBso5bV1Mxc/edit?usp=sharing"
+    },
+    {
+      title: "N8N Projects",
+      image: iotImage,
+      description: "Workflow automation and integration solutions",
+      link: "https://docs.google.com/presentation/d/1bk3WtWeRKXF6EVp5VXDLybj_K5JeuUfKm0FroPx9gKY/edit?usp=sharing"
+    },
+    {
+      title: "Scratch/PictoBlox Projects",
+      image: roboticsImage,
+      description: "Visual programming and block-based coding",
+      link: "https://docs.google.com/presentation/d/1KySGnn_gIVuttgd6MlPBumYMCSJi7vgR8NJYDKNip68/edit?usp=sharing"
     }
   ];
 
