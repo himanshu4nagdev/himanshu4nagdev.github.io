@@ -24,7 +24,7 @@ const Projects = () => {
       link: "https://docs.google.com/presentation/d/1QGCqRpiHgqcnZ8hsIVT_cswYqeWZfCBlRFAF4qYs_tk/edit?usp=sharing"
     },
     {
-      title: "Robotic Projects",
+      title: "Robotics Projects",
       image: roboticsImage,
       description: "Autonomous robots and intelligent automation",
       link: "https://docs.google.com/presentation/d/1eJa2t4mozf3ymmWC-tmZ6ZYFcCXb8wVMP8BLcPfOXhs/edit?usp=sharing"
@@ -132,6 +132,59 @@ const Projects = () => {
                 </motion.div>
               );
             })}
+          </div>
+
+          {/* Products Section */}
+          <div className="mt-20">
+            <h3 className="text-3xl md:text-4xl font-display text-center mb-4 text-gradient">
+              Products
+            </h3>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary via-secondary to-accent mx-auto mb-12 rounded-full" />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Active Products",
+                  description: "Products currently live and available for use",
+                  link: "https://docs.google.com/presentation/d/1Xn9XMcPf14ZGF5oD8XJBrYOQqsfMP_T7hhLrcPH00uc/edit?usp=sharing",
+                  icon: "🚀",
+                },
+                {
+                  title: "On Demand Products",
+                  description: "Products available on request and customization",
+                  link: "https://docs.google.com/presentation/d/1jBWL-292cUegYX4KFZE_QG5f5dZH4KDOv8apNz7Ok28/edit?usp=sharing",
+                  icon: "⚡",
+                },
+                {
+                  title: "Planned Products",
+                  description: "Upcoming products in the pipeline",
+                  link: "https://docs.google.com/presentation/d/1M1k-a7csqYCr62GGzhGPCeXemapXRdnJ4qHfEcNs3qs/edit?usp=sharing",
+                  icon: "📋",
+                },
+              ].map((product, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  transition={{ duration: 0.5, delay: 0.6 + index * 0.15 }}
+                >
+                  <a
+                    href={product.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block gradient-card rounded-xl p-8 border border-border hover:border-primary transition-all duration-300 hover:glow-primary text-center group"
+                  >
+                    <span className="text-4xl mb-4 block">{product.icon}</span>
+                    <h4 className="text-xl font-display mb-2 text-primary group-hover:text-gradient transition-colors">
+                      {product.title}
+                    </h4>
+                    <p className="text-muted-foreground text-sm">
+                      {product.description}
+                    </p>
+                  </a>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           {/* Events Section */}
