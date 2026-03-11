@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, Award } from "lucide-react";
+import { Mail, MapPin, Award, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -15,11 +15,18 @@ const Footer = () => {
             <h3 className="text-xl font-display mb-4 text-primary">Connect</h3>
             <div className="space-y-3">
               <a 
-                href="mailto:himanshu@iiitd.ac.in"
+                href="mailto:himanshunagdev.hn@gmail.com"
                 className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                himanshu@iiitd.ac.in
+                himanshunagdev.hn@gmail.com
+              </a>
+              <a 
+                href="tel:+919312214649"
+                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                +91 9312214649
               </a>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="w-4 h-4" />
