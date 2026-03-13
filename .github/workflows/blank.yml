@@ -21,19 +21,21 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build project
         run: npm run build
 
-      # ⬇️ NEW updated artifact action for GitHub Pages
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
       - name: Upload build output
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist   # ⬅ change to build/ if your output folder is build
+          path: ./dist
 
   deploy:
     needs: build
