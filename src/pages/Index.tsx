@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen relative">
-      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex flex-wrap justify-center gap-2 max-w-3xl px-4">
+      <div className="sticky top-0 z-50 flex w-full flex-wrap justify-center gap-2 px-4 py-3 sm:fixed sm:top-4 sm:left-1/2 sm:w-auto sm:max-w-3xl sm:-translate-x-1/2 sm:py-0">
         <a
           href="https://docs.google.com/presentation/d/1CFxTsIKarfToc-s3wMEqeybL-3Bc6bOo/edit?usp=sharing&ouid=110060366950830819912&rtpof=true&sd=true"
           target="_blank"
