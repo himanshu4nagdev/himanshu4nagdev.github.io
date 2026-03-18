@@ -32,6 +32,14 @@ const Index = () => {
         >
           Robotics with Graphical Programming
         </a>
+        <a
+          href="https://himanshu4nagdev.github.io/robotics_syllabus/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-3 py-1.5 bg-primary text-primary-foreground rounded-full text-xs font-medium hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-lg text-center"
+        >
+          Robotics & AI for Engineers
+        </a>
       </div>
       <Hero />
       <About />
