@@ -4,7 +4,7 @@ import { useRef } from "react";
 import iotImage from "@/assets/iot-projects.jpg";
 import glideImage from "@/assets/glide-projects.jpg";
 import bubbleImage from "@/assets/bubble-projects.jpg";
-import softrImage from "@/assets/softr-projects.jpg";
+import softrImage from "@/assets/3d_printing.png";
 import loveableImage from "@/assets/loveable-projects.jpg";
 import cursorImage from "@/assets/cursor-projects.jpg";
 import vlsiImage from "@/assets/vlsi-projects.jpg";
