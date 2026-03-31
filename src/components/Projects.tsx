@@ -56,7 +56,7 @@ const Projects = () => {
     {
       title: "3D Printing Projects",
       image: softrImage,
-      description: "Client portals and internal tools",
+      description: "Rapid Prototyping of Ideas",
       link: "https://docs.google.com/presentation/d/1uT1Apxc_34SosbEHqAxhekFPD0fGFAUDCoygp7q2SVI/edit?usp=sharing"
     },
     {
