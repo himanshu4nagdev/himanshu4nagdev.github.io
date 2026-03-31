@@ -54,7 +54,7 @@ const Projects = () => {
       link: "https://docs.google.com/presentation/d/1qHGwnAN8UywLRMAOdAzC2BKthXMLqepvlxo7rbnrxLQ/edit?usp=sharing"
     },
     {
-      title: "Softr Projects",
+      title: "3D Printing Projects",
       image: softrImage,
       description: "Client portals and internal tools",
       link: "https://docs.google.com/presentation/d/1uT1Apxc_34SosbEHqAxhekFPD0fGFAUDCoygp7q2SVI/edit?usp=sharing"
