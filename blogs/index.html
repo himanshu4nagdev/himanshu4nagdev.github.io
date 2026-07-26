@@ -7,7 +7,7 @@
   <title>Blog — Himanshu Nagdev</title>
   <meta name="description" content="Writing on AI infrastructure, MLOps and building things that ship, by Himanshu Nagdev.">
   <link rel="canonical" href="https://himanshunagdev.in/blogs">
-  <link rel="icon" href="/images/1784812640498-him.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 100 100&#39;%3E%3Ctext y=&#39;.9em&#39; font-size=&#39;90&#39;%3E⚡%3C/text%3E%3C/svg%3E">
   <style>
     :root {
       --bg: #f8fafc;
@@ -673,6 +673,19 @@
       font-size: 0.95rem;
       margin: 0;
     }
+
+    /* Compact rich-text rendering for card descriptions that aren't line-clamped
+       (Certifications, Awards, Research) — Markdown-authored, but sized to fit a card. */
+    .rich-text-compact { text-align: left; }
+    .rich-text-compact h1, .rich-text-compact h2, .rich-text-compact h3 {
+      font-size: 1rem; font-weight: 800; color: var(--text); margin: 0 0 6px;
+    }
+    .rich-text-compact p { margin: 0 0 8px; }
+    .rich-text-compact ul, .rich-text-compact ol { margin: 0 0 8px; padding-left: 20px; }
+    .rich-text-compact li { margin-bottom: 4px; }
+    .rich-text-compact strong { color: var(--text); }
+    .rich-text-compact hr { border: none; border-top: 1px solid var(--border); margin: 10px 0; }
+    .rich-text-compact > *:last-child { margin-bottom: 0; }
 
     /* Work With Me */
     .work-cta {
