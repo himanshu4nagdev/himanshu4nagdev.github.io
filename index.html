@@ -1351,6 +1351,45 @@ Still learning how far this approach can go, but this project convinced me it&#3
             
             <a class="card-read" href="projects/simplified-theory-the-handwritten-notes-hub-for-undergraduates" aria-label="Read more about Simplified Theory - The Handwritten Notes Hub for Undergraduates">Read more →</a>
           </article>
+          <article class="project-card" data-category="live-webapps">
+            <img src="/images/1785050620733-cloudbench.png" alt="" style="width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:16px;">
+            <span class="card-category">Live Webapps</span>
+            <span class="card-subcategory">In Production</span>
+            <h3 class="card-title"></h3>
+            <div class="card-meta">Completed Jul 2026</div>
+            <p class="card-desc">🚀 Weekend Project #3 🛠️🤖
+After building a GenAI mentor for a STEM educator friend (Weekend Project #1), a different problem kept coming up in conversations about robotics classes for kids. 💡
+Robotics is one of the most exciting parts of a STEM curriculum — but also one of the hardest to teach well in a 1-hour session. Two things eat up all the time:
+🔌 Instructors spend most of the class walking around, physically helping each student wire up their Arduino, sensors, and motors correctly — instead of teaching the actual coding/logic.
+📦 Not every student/classroom has enough hardware kits to go around, so hands-on learning becomes a bottleneck rather than the whole point.
+So I built CloudBench (cloudbench.himanshunagdev.in) ☁️🔧 — a virtual robotics lab.
+💭 The idea: the instructor pre-wires the physical hardware once, ahead of time. Students then log in from any browser and get a live camera feed of the real, working hardware right next to a block-based code editor — so the full session can go into actually teaching logic and code, not cables.
+✨ What it does:
+🧩 Drag-and-drop block programming that auto-generates real Arduino C++ code (and vice versa is a known hard problem in this space — still working on it!)
+📹 A persistent live camera view of the real hardware, side-by-side with the editor
+⚡ One click compiles and uploads straight to the physical Arduino, with live build/upload logs (like the real Arduino IDE)
+📟 A serial monitor to see live output from the board
+👨‍🏫👩‍🎓 Separate teacher/student logins, with a live chat panel so a student can just type &quot;sir, please push the pin 3 button&quot; and the instructor can respond in real time
+📚 A library manager to pull in Arduino libraries on demand
+💾 Ready-made example programs, and the ability to save/load your own block sessions — right on the device, no files to manage
+🛠️ Tech stack:
+🍓 Raspberry Pi 4 (8GB) as the always-on host — running the webcam and a real Arduino over USB
+🐍 Python backend (stdlib HTTP server + Flask for the camera stream + WebSockets for serial/chat)
+🧱 Blockly (open-source visual programming) as the block-coding front end, which I&#39;ve extended and restyled for this use case
+⚙️ arduino-cli for real compiles/uploads
+☁️🔒 Cloudflare Tunnel for secure public access, no port-forwarding on my home network
+📝 To be clear — I&#39;m not claiming to have invented block-based coding or built an Arduino IDE from scratch. The visual programming layer is built on open-source foundations, and what I&#39;m actually offering here is the integration and setup work: wiring the hardware, camera, auth, live collaboration, and deployment together into something an instructor can actually use in a live class.
+🚀 What&#39;s next?
+💻 I also have several advanced development boards from Texas Instruments (TI) along with FPGA development boards and ton of peripherals , Portable Oscilloscope , which can be prohibitively expensive for many students and hobbyists to buy just to start learning.
+🌐 My next goal is to build a similar cloud-based IDE and remote hardware lab for these platforms, allowing learners to write code, program real hardware remotely, and observe the results through a live interface—without needing to own the boards themselves.
+🤝 If you work in the embedded systems, FPGA, semiconductor, or hardware education space and find this idea interesting, I&#39;d love to collaborate. This is something I&#39;m building during my spare weekend hours, and I&#39;m always happy to connect with people who share the same vision.
+📩 Feel free to DM me if you&#39;d like to brainstorm, contribute, or explore building this together.
+🤝 If hardware access or classroom time is a bottleneck for a robotics/STEM program you&#39;re involved with, happy to walk through a live demo and talk through what a setup tailored to your needs would look like. Drop a comment or DM.
+</p>
+            <div class="chips"></div>
+            
+            <a class="card-read" href="projects/cloudbench" aria-label="Read more about ">Read more →</a>
+          </article>
         </div>
       </div>
     </section>
