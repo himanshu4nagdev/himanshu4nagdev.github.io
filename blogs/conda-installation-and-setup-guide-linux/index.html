@@ -4,9 +4,13 @@
   <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — Himanshu Nagdev</title>
-  <meta name="description" content="Writing on AI infrastructure, MLOps and building things that ship, by Himanshu Nagdev.">
-  <link rel="canonical" href="https://himanshunagdev.in/blogs">
+  <title>Conda Installation and Setup Guide (Linux) — Blog | Himanshu Nagdev</title>
+  <meta name="description" content="">
+  <meta property="og:title" content="Conda Installation and Setup Guide (Linux)">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="article">
+  
+  <link rel="canonical" href="https://himanshunagdev.in/blogs/conda-installation-and-setup-guide-linux">
   <link rel="icon" href="/images/1784812640498-him.jpg">
   <style>
     :root {
@@ -1195,32 +1199,477 @@
   </header>
 
   <main>
-    <section class="page-header">
-      <div class="container">
-        <span class="accent-line"></span>
-        <h2 class="section-title">Blog</h2>
-        <p class="section-lead">Writing on AI infrastructure, MLOps and building things that ship.</p>
+    <div class="article-header">
+      <a href="/blogs" class="back-link" style="display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-weight:600;font-size:0.92rem;margin-bottom:24px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back to Blog
+      </a>
+      <h1>Conda Installation and Setup Guide (Linux)</h1>
+      <div class="article-meta">
+        <span>July 28, 2026</span><span class="dot-sep"></span>
+        <span>4 min read</span>
       </div>
-    </section>
+      
+    </div>
 
-    <section class="section" style="padding-top:0;">
-      <div class="container">
-        
-        <div class="blog-grid">
-          <a class="blog-card" href="/blogs/conda-installation-and-setup-guide-linux" style="text-decoration:none;">
-            
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">Conda Installation and Setup Guide (Linux)</h3>
-              <div class="blog-card-meta"><span>Jul 2026</span><span class="dot-sep"></span><span>4 min read</span></div>
-              <p class="blog-card-excerpt"></p>
-              
-            </div>
-          </a>
+    
+
+    <article class="article-body"><pre class="ql-syntax" spellcheck="false"># Conda Installation and Setup Guide (Linux)
+
+This guide documents the recommended procedure for installing Anaconda/Conda on any Linux system while ensuring that Conda is installed in the **user's home directory** rather than using a root-owned installation.
+
+---
+
+# Prerequisites
+
+- Linux system
+- Internet access (for downloading the installer)
+- Bash shell
+- `wget`
+- `shasum` or `sha256sum`
+
+---
+
+# Step 1: Check Existing Conda Environment
+
+Before installing Conda, verify whether the current shell is using a root-owned Conda installation.
+
+```bash
+env | grep CONDA
+```
+
+Example output:
+
+```text
+CONDA_EXE=/root/miniconda3/bin/conda
+CONDA_PREFIX=/root/miniconda3
+CONDA_PROMPT_MODIFIER=(base)
+_CE_CONDA=
+CONDA_SHLVL=1
+CONDA_PYTHON_EXE=/root/miniconda3/bin/python
+CONDA_DEFAULT_ENV=base
+```
+
+If `CONDA_PREFIX` points to `/root/...`, then your shell is currently using the root installation.
+
+---
+
+# Step 2: Clear Existing Conda Environment Variables
+
+Unset all Conda-related environment variables.
+
+```bash
+unset CONDA_EXE \
+      CONDA_PREFIX \
+      CONDA_PROMPT_MODIFIER \
+      CONDA_SHLVL \
+      CONDA_PYTHON_EXE \
+      CONDA_DEFAULT_ENV
+```
+
+---
+
+# Step 3: Verify Cleanup
+
+```bash
+env | grep CONDA
+```
+
+Expected output:
+
+```text
+_CE_CONDA=
+```
+
+This confirms that no previous Conda installation is active.
+
+---
+
+# Step 4: Download the Required Conda Installer
+
+Browse the Anaconda archive and choose the required installer version.
+
+Archive:
+
+https://repo.anaconda.com/archive/
+
+Example:
+
+```bash
+wget https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
+```
+
+---
+
+# Step 5: Verify Installer Integrity
+
+Always verify the SHA256 checksum before executing the installer.
+
+```bash
+shasum -a 256 ~/Anaconda3-2024.10-1-Linux-x86_64.sh
+```
+
+Compare the generated checksum with the SHA256 hash published on the Anaconda archive page.
+
+This ensures that the installer has not been tampered with.
+
+---
+
+# Step 6: Run the Installer
+
+```bash
+bash Anaconda3-2024.10-1-Linux-x86_64.sh
+```
+
+Follow the installation prompts.
+
+Install into your home directory, for example:
+
+```text
+/home/&lt;username&gt;/anaconda3
+```
+
+Avoid installing under:
+
+```text
+/root/
+```
+
+unless you intentionally require a system-wide installation.
+
+---
+
+# Step 7: Conda Initialization
+
+During installation, Conda will ask:
+
+```text
+Do you wish the installer to initialize Anaconda3
+by running conda init?
+```
+
+It will also display:
+
+```text
+You can undo this by running
+
+conda init --reverse $SHELL
+
+[yes|no]
+```
+
+## Recommended: YES
+
+Choosing **yes**:
+
+- Automatically initializes Conda whenever a terminal opens.
+- Adds the required configuration to `.bashrc`.
+- Makes Conda immediately available.
+
+Example:
+
+```text
+modified      /home/user/.bashrc
+
+==&gt; For changes to take effect, close and re-open your current shell. &lt;==
+```
+
+If you prefer manual activation each time, choose **no**.
+
+---
+
+# Step 8: Verify the New Installation
+
+After installation:
+
+```bash
+env | grep CONDA
+```
+
+Example:
+
+```text
+CONDA_EXE=/home/user/anaconda3/bin/conda
+CONDA_PREFIX=/root/miniconda3
+CONDA_PROMPT_MODIFIER=(base)
+_CE_CONDA=
+CONDA_SHLVL=1
+CONDA_PYTHON_EXE=/home/user/anaconda3/bin/python
+CONDA_DEFAULT_ENV=base
+```
+
+Notice that `CONDA_PREFIX` may still point to the old root installation.
+
+---
+
+# Step 9: Force Conda to Use the User Installation
+
+Append the following lines to your `.bashrc`.
+
+Replace the path with your own installation directory.
+
+```bash
+echo -e '\n# Force Conda to use user installation
+export CONDA_PREFIX="/home/&lt;username&gt;/anaconda3"
+export CONDA_DEFAULT_ENV="base"' &gt;&gt; ~/.bashrc
+```
+
+Reload the shell.
+
+```bash
+source ~/.bashrc
+```
+
+---
+
+# Step 10: Verify Again
+
+```bash
+env | grep CONDA
+```
+
+Expected output:
+
+```text
+CONDA_EXE=/home/&lt;username&gt;/anaconda3/bin/conda
+CONDA_PREFIX=/home/&lt;username&gt;/anaconda3
+CONDA_PROMPT_MODIFIER=(base)
+_CE_CONDA=
+CONDA_SHLVL=1
+CONDA_PYTHON_EXE=/home/&lt;username&gt;/anaconda3/bin/python
+CONDA_DEFAULT_ENV=base
+```
+
+Now the entire Conda environment points to the user installation.
+
+---
+
+# Restoring a Conda-Packed Environment
+
+If you receive a Conda environment packed using `conda-pack`, restore it as follows.
+
+Create the destination directory:
+
+```bash
+mkdir -p /home/&lt;username&gt;/my_new_ml_env
+```
+
+Extract the archive:
+
+```bash
+tar -xvzf /home/&lt;username&gt;/my_new_ml_env.tar.gz \
+-C /home/&lt;username&gt;/my_new_ml_env
+```
+
+Activate the environment:
+
+```bash
+source /home/&lt;username&gt;/my_new_ml_env/bin/activate
+```
+
+Run:
+
+```bash
+conda-unpack
+```
+
+Or execute all commands together:
+
+```bash
+mkdir -p /home/&lt;username&gt;/my_new_ml_env
+
+tar -xvzf /home/&lt;username&gt;/my_new_ml_env.tar.gz \
+-C /home/&lt;username&gt;/my_new_ml_env
+
+source /home/&lt;username&gt;/my_new_ml_env/bin/activate
+
+conda-unpack
+```
+
+---
+
+# Why Doesn't `conda env list` Show the Environment?
+
+A packed Conda environment is simply an extracted directory.
+
+It is **not automatically registered** with Conda.
+
+Therefore:
+
+```bash
+conda env list
+```
+
+will **not** display it.
+
+---
+
+# Register the Environment with Conda
+
+Create a symbolic link inside Conda's `envs` directory.
+
+```bash
+ln -s /home/&lt;username&gt;/my_new_ml_env \
+      /home/&lt;username&gt;/anaconda3/envs/my_new_ml_env
+```
+
+Now verify:
+
+```bash
+conda env list
+```
+
+Example:
+
+```text
+# conda environments:
+#
+base             /home/&lt;username&gt;/anaconda3
+my_new_ml_env    /home/&lt;username&gt;/anaconda3/envs/my_new_ml_env
+```
+
+The environment is now recognized by Conda.
+
+---
+
+# Useful Commands
+
+Check Conda version:
+
+```bash
+conda --version
+```
+
+Check Python version:
+
+```bash
+python --version
+```
+
+List environments:
+
+```bash
+conda env list
+```
+
+Activate an environment:
+
+```bash
+conda activate &lt;environment_name&gt;
+```
+
+Deactivate:
+
+```bash
+conda deactivate
+```
+
+Check Conda environment variables:
+
+```bash
+env | grep CONDA
+```
+
+---
+
+# Best Practices
+
+- Install Conda inside your home directory.
+- Avoid using a root-owned Conda installation unless required.
+- Verify the installer checksum before installation.
+- Ensure `CONDA_PREFIX` points to the correct user installation.
+- Use `conda-unpack` after restoring packed environments.
+- Register packed environments with a symbolic link if you want them to appear in `conda env list`.
+- Keep the base environment minimal and create separate environments for different projects.
+
+---
+
+# Troubleshooting
+
+## Conda still points to `/root`
+
+```bash
+unset CONDA_EXE CONDA_PREFIX CONDA_PROMPT_MODIFIER \
+CONDA_SHLVL CONDA_PYTHON_EXE CONDA_DEFAULT_ENV
+
+source ~/.bashrc
+```
+
+---
+
+## `conda` command not found
+
+Reload your shell:
+
+```bash
+source ~/.bashrc
+```
+
+or initialize Conda manually:
+
+```bash
+~/anaconda3/bin/conda init bash
+```
+
+Restart the terminal.
+
+---
+
+## `conda env list` does not show a restored environment
+
+Packed environments are not automatically registered.
+
+Create a symbolic link:
+
+```bash
+ln -s /path/to/environment \
+      ~/anaconda3/envs/&lt;environment_name&gt;
+```
+
+Then verify:
+
+```bash
+conda env list
+```
+
+---
+
+## Verify Active Environment
+
+```bash
+echo $CONDA_PREFIX
+```
+
+or
+
+```bash
+env | grep CONDA
+```
+
+Both should point to your user installation under:
+
+```text
+/home/&lt;username&gt;/anaconda3
+```
+</pre><p><br></p></article>
+
+    <div class="share-row">
+      <span>Share this post:</span>
+      <a class="btn btn-secondary" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fhimanshunagdev.in%2Fblogs%2Fconda-installation-and-setup-guide-linux" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-secondary" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fhimanshunagdev.in%2Fblogs%2Fconda-installation-and-setup-guide-linux&amp;text=Conda%20Installation%20and%20Setup%20Guide%20(Linux)" target="_blank" rel="noopener">X / Twitter</a>
+    </div>
+
+    <div class="article-cta">
+      <div class="work-cta">
+        <p>Enjoyed this? I help teams ship production-grade AI deployments, CI/CD pipelines and MLOps. Let's talk.</p>
+        <div class="btn-group">
+          <a class="btn btn-primary" href="https://topmate.io/himanshu_nagdev" target="_blank" rel="noopener">Book a 1:1 on Topmate</a>
+          <a class="btn btn-secondary" href="/blogs">More posts</a>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section style="padding: 0 24px 48px;">
+    <section style="padding: 48px 24px 48px;">
       <div class="container">
         
   <footer class="footer">
