@@ -4,9 +4,13 @@
   <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — Himanshu Nagdev</title>
-  <meta name="description" content="Writing on AI infrastructure, MLOps and building things that ship, by Himanshu Nagdev.">
-  <link rel="canonical" href="https://himanshunagdev.in/blogs">
+  <title>Managing the threshold in labwiki from admin pannel — Blog | Himanshu Nagdev</title>
+  <meta name="description" content="">
+  <meta property="og:title" content="Managing the threshold in labwiki from admin pannel">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="article">
+  
+  <link rel="canonical" href="https://himanshunagdev.in/blogs/managing-the-threshold-in-labwiki-from-admin-pannel">
   <link rel="icon" href="/images/1784812640498-him.jpg">
   <style>
     :root {
@@ -1203,41 +1207,98 @@
   </header>
 
   <main>
-    <section class="page-header">
-      <div class="container">
-        <span class="accent-line"></span>
-        <h2 class="section-title">Blog</h2>
-        <p class="section-lead">Writing on AI infrastructure, MLOps and building things that ship.</p>
+    <div class="article-header">
+      <a href="/blogs" class="back-link" style="display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-weight:600;font-size:0.92rem;margin-bottom:24px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back to Blog
+      </a>
+      <h1>Managing the threshold in labwiki from admin pannel</h1>
+      <div class="article-meta">
+        <span>July 28, 2026</span><span class="dot-sep"></span>
+        <span>2 min read</span>
       </div>
-    </section>
+      
+    </div>
 
-    <section class="section" style="padding-top:0;">
-      <div class="container">
-        
-        <div class="blog-grid">
-          <a class="blog-card" href="/blogs/conda-installation-and-setup-guide-linux" style="text-decoration:none;">
-            
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">Conda Installation and Setup Guide (Linux)</h3>
-              <div class="blog-card-meta"><span>Jul 2026</span><span class="dot-sep"></span><span>4 min read</span></div>
-              <p class="blog-card-excerpt">A step-by-step guide to installing and setting up Conda/Anaconda on Linux under your own home directory instead of a root-owned install.</p>
-              
-            </div>
-          </a>
-          <a class="blog-card" href="/blogs/managing-the-threshold-in-labwiki-from-admin-pannel" style="text-decoration:none;">
-            
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">Managing the threshold in labwiki from admin pannel</h3>
-              <div class="blog-card-meta"><span>Jul 2026</span><span class="dot-sep"></span><span>2 min read</span></div>
-              <p class="blog-card-excerpt"></p>
-              
-            </div>
-          </a>
+    
+
+    <article class="article-body"><p>Change from backend</p><p><img src="/images/1785226016257-image.png"></p><p><br></p><p>Verify in server where restriction is made</p><p><br></p><pre class="ql-syntax" spellcheck="false">(base) xyz@xyz:~/labwiki$ curl -s http://192.168.22.20:3000/api/enforcement/agent/settings/4&nbsp;&nbsp;-H "X-Enforcement-Key: ef55353f9eabe18eac027bb19554bb109ca3511b5a87e05d"
+{"server_id":4,"enabled":true,"cpu_limit_percent":50,"ram_limit_percent":50,"check_interval_seconds":30}(base) xyz@xyz:~/labwiki$
+</pre><p><br></p><p>Test the script on that server the cpu limit script</p><p><br></p><pre class="ql-syntax" spellcheck="false">(resource-test) xyz1@xyz:~/test_scripts$ cat cpu_threshold_test.py
+#!/usr/bin/env python3
+
+import multiprocessing as mp
+import math
+import time
+
+TARGET_CPU_PERCENT = 60&nbsp;# Percentage of total system CPU to consume
+
+def cpu_burn():
+&nbsp;&nbsp;x = 0.0
+&nbsp;&nbsp;while True:
+&nbsp;&nbsp;&nbsp;&nbsp;x += math.sqrt(12345.6789)
+&nbsp;&nbsp;&nbsp;&nbsp;if x &gt; 1e9:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = 0.0
+
+if __name__ == "__main__":
+&nbsp;&nbsp;total_cores = mp.cpu_count()
+
+&nbsp;&nbsp;# Number of fully loaded cores needed
+&nbsp;&nbsp;full_workers = max(1, round(total_cores * TARGET_CPU_PERCENT / 100))
+
+&nbsp;&nbsp;print(f"Total CPU cores : {total_cores}")
+&nbsp;&nbsp;print(f"Launching {full_workers} CPU workers")
+&nbsp;&nbsp;print(f"Target usage ≈ {TARGET_CPU_PERCENT}% of total CPU")
+
+&nbsp;&nbsp;workers = []
+
+&nbsp;&nbsp;for _ in range(full_workers):
+&nbsp;&nbsp;&nbsp;&nbsp;p = mp.Process(target=cpu_burn)
+&nbsp;&nbsp;&nbsp;&nbsp;p.start()
+&nbsp;&nbsp;&nbsp;&nbsp;workers.append(p)
+
+&nbsp;&nbsp;try:
+&nbsp;&nbsp;&nbsp;&nbsp;while True:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(1)
+&nbsp;&nbsp;except KeyboardInterrupt:
+&nbsp;&nbsp;&nbsp;&nbsp;print("\nStopping workers...")
+&nbsp;&nbsp;&nbsp;&nbsp;for p in workers:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p.terminate()
+&nbsp;&nbsp;&nbsp;&nbsp;for p in workers:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p.join()
+(resource-test) xyz1@xyz:~/test_scripts$
+</pre><p><br></p><p><img src="/images/1785233716832-image.png"></p><p><br></p><p><br></p><p>Backend Expected</p><pre class="ql-syntax" spellcheck="false">(base) covaln@debarka-desktop:~/labwiki$ sudo journalctl -fu sengupta-enforcer
+
+Jul 28 15:40:15 debarka-desktop sengupta-enforcer.sh[1891270]: [2026-07-28 15:40:15] KILLED cpu — user=himanshu usage=2093.9% limit=50% pid=1891684 cmd=python
+Jul 28 15:40:46 debarka-desktop sengupta-enforcer.sh[1891270]: [2026-07-28 15:40:46] KILLED cpu — user=himanshu usage=192.0% limit=50% pid=1828850 cmd=python &lt;defunct&gt;
+Jul 28 15:41:17 debarka-desktop sengupta-enforcer.sh[1891270]: [2026-07-28 15:41:17] KILLED cpu — user=himanshu usage=191.2% limit=50% pid=1828850 cmd=python &lt;defunct&gt;
+Jul 28 15:41:48 debarka-desktop sengupta-enforcer.sh[1891270]: [2026-07-28 15:41:48] KILLED cpu — user=himanshu usage=189.0% limit=50% pid=1828850 cmd=python &lt;defunct&gt;
+Jul 28 15:42:19 debarka-desktop sengupta-enforcer.sh[1891270]: [2026-07-28 15:42:19] KILLED cpu — user=himanshu usage=188.3% limit=50% pid=1828850 cmd=python &lt;defunct&gt;
+Jul 28 15:42:50 debarka-desktop sengupta-enforcer.sh[1891270]: [2026-07-28 15:42:50] KILLED cpu — user=himanshu usage=187.7% limit=50% pid=1828850 cmd=python &lt;defunct&gt;
+Jul 28 15:43:21 debarka-desktop sengupta-enforcer.sh[1891270]: [2026-07-28 15:43:21] KILLED cpu — user=himanshu usage=187.0% limit=50% pid=1828850 cmd=python &lt;defunct&gt;
+Jul 28 15:43:52 debarka-desktop sengupta-enforcer.sh[1891270]: [2026-07-28 15:43:52] KILLED cpu — user=himanshu usage=186.2% limit=50% pid=1828850 cmd=python &lt;defunct&gt;
+Jul 28 15:44:23 debarka-desktop sengupta-enforcer.sh[1891270]: [2026-07-28 15:44:23] KILLED cpu — user=himanshu usage=185.3% limit=50% pid=1828850 cmd=python &lt;defunct&gt;
+Jul 28 15:44:54 debarka-desktop sengupta-enforcer.sh[1891270]: [2026-07-28 15:44:54] KILLED cpu — user=himanshu usage=185.3% limit=50% pid=1828850 cmd=python &lt;defunct&gt;
+Jul 28 15:45:25 debarka-desktop sengupta-enforcer.sh[1891270]: [2026-07-28 15:45:25] KILLED cpu — user=himanshu usage=184.3% limit=50% pid=1828850 cmd=python &lt;defunct&gt;
+</pre><p><br></p><p><br></p><p><br></p><p><br></p><p>Admin pannel</p><p><br></p><p><img src="/images/1785233836454-image.png"></p><p><br></p></article>
+
+    <div class="share-row">
+      <span>Share this post:</span>
+      <a class="btn btn-secondary" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fhimanshunagdev.in%2Fblogs%2Fmanaging-the-threshold-in-labwiki-from-admin-pannel" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-secondary" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fhimanshunagdev.in%2Fblogs%2Fmanaging-the-threshold-in-labwiki-from-admin-pannel&amp;text=Managing%20the%20threshold%20in%20labwiki%20from%20admin%20pannel" target="_blank" rel="noopener">X / Twitter</a>
+    </div>
+
+    <div class="article-cta">
+      <div class="work-cta">
+        <p>Enjoyed this? I help teams ship production-grade AI deployments, CI/CD pipelines and MLOps. Let's talk.</p>
+        <div class="btn-group">
+          <a class="btn btn-primary" href="https://topmate.io/himanshu_nagdev" target="_blank" rel="noopener">Book a 1:1 on Topmate</a>
+          <a class="btn btn-secondary" href="/blogs">More posts</a>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section style="padding: 0 24px 48px;">
+    <section style="padding: 48px 24px 48px;">
       <div class="container">
         
   <footer class="footer">
