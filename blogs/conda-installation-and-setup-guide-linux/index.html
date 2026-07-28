@@ -1214,69 +1214,69 @@
 
     
 
-    <article class="article-body"><h1>Conda Installation and Setup Guide (Linux)</h1><p>This guide documents the recommended procedure for installing Anaconda/Conda on any Linux system while ensuring that Conda is installed in the <strong>user's home directory</strong> rather than using a root-owned installation.</p><p><br></p><h1>Prerequisites</h1><ul><li>Linux system</li><li>Internet access (for downloading the installer)</li><li>Bash shell</li><li><code>wget</code></li><li><code>shasum</code> or <code>sha256sum</code></li></ul><h1>Step 1: Check Existing Conda Environment</h1><p>Before installing Conda, verify whether the current shell is using a root-owned Conda installation.</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">env | grep CONDA
-</pre><p>Example output:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">CONDA_EXE=/root/miniconda3/bin/conda
+    <article class="article-body"><h1>Conda Installation and Setup Guide (Linux)</h1><p>This guide documents the recommended procedure for installing Anaconda/Conda on any Linux system while ensuring that Conda is installed in the <strong>user's home directory</strong> rather than using a root-owned installation.</p><h1>Prerequisites</h1><ul><li>Linux system</li><li>Internet access (for downloading the installer)</li><li>Bash shell</li><li><code>wget</code></li><li><code>shasum</code> or <code>sha256sum</code></li></ul><h1>Step 1: Check Existing Conda Environment</h1><p>Before installing Conda, verify whether the current shell is using a root-owned Conda installation.</p><pre class="ql-syntax" spellcheck="false">env | grep CONDA
+</pre><p>Example output:</p><pre class="ql-syntax" spellcheck="false">CONDA_EXE=/root/miniconda3/bin/conda
 CONDA_PREFIX=/root/miniconda3
 CONDA_PROMPT_MODIFIER=(base)
 _CE_CONDA=
 CONDA_SHLVL=1
 CONDA_PYTHON_EXE=/root/miniconda3/bin/python
 CONDA_DEFAULT_ENV=base
-</pre><p>If <code>CONDA_PREFIX</code> points to <code>/root/...</code>, then your shell is currently using the root installation.</p><p><br></p><h1>Step 2: Clear Existing Conda Environment Variables</h1><p>Unset all Conda-related environment variables.</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">unset CONDA_EXE \
+</pre><p>If <code>CONDA_PREFIX</code> points to <code>/root/...</code>, then your shell is currently using the root installation.</p><h1>Step 2: Clear Existing Conda Environment Variables</h1><p>Unset all Conda-related environment variables.</p><pre class="ql-syntax" spellcheck="false">unset CONDA_EXE \
       CONDA_PREFIX \
       CONDA_PROMPT_MODIFIER \
       CONDA_SHLVL \
       CONDA_PYTHON_EXE \
       CONDA_DEFAULT_ENV
 </pre><h1>Step 3: Verify Cleanup</h1><pre class="ql-syntax" spellcheck="false">env | grep CONDA
-</pre><p>Expected output:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">_CE_CONDA=
-</pre><p>This confirms that no previous Conda installation is active.</p><p><br></p><h1>Step 4: Download the Required Conda Installer</h1><p>Browse the Anaconda archive and choose the required installer version.</p><p>Archive:</p><p><a href="https://repo.anaconda.com/archive/" rel="noopener noreferrer" target="_blank">https://repo.anaconda.com/archive/</a></p><p>Example:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">wget https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
-</pre><h1><img src="/images/1785223387786-step1conda.png"></h1><h1><br></h1><h1>Step 5: Verify Installer Integrity</h1><p>Always verify the SHA256 checksum before executing the installer.</p><p><br></p><pre class="ql-syntax" spellcheck="false">shasum -a 256 ~/Anaconda3-2024.10-1-Linux-x86_64.sh
-</pre><p>Compare the generated checksum with the SHA256 hash published on the Anaconda archive page.</p><p>This ensures that the installer has not been tampered with.</p><p><br></p><p><img src="/images/1785223510525-image.png"></p><h1>Step 6: Run the Installer</h1><pre class="ql-syntax" spellcheck="false">bash Anaconda3-2024.10-1-Linux-x86_64.sh
-</pre><p><img src="/images/1785223618082-image.png"></p><p>Press Enter Keep on clicking More till reach the end</p><p><br></p><p><img src="/images/1785223741089-image.png"></p><p><br></p><p>Press Enter</p><p><br></p><p><img src="/images/1785223817917-image.png"></p><p><br></p><p><img src="/images/1785224007351-image.png"></p><p>Open New session / restart vs code</p><p><br></p><p><img src="/images/1785224084690-image.png"></p><p>After that you can create conda env and activate it and run your script</p><p><br></p><h3>Step 6.1) Create a new Conda environment</h3><pre class="ql-syntax" spellcheck="false">
+</pre><p>Expected output:</p><pre class="ql-syntax" spellcheck="false">_CE_CONDA=
+</pre><p>This confirms that no previous Conda installation is active.</p><h1>Step 4: Download the Required Conda Installer</h1><p>Browse the Anaconda archive and choose the required installer version.</p><p>Archive:</p><p><a href="https://repo.anaconda.com/archive/" rel="noopener noreferrer" target="_blank">https://repo.anaconda.com/archive/</a></p><p>Example:</p><pre class="ql-syntax" spellcheck="false">wget https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
+</pre><h1><img src="/images/1785223387786-step1conda.png"></h1><h1><br></h1><h1>Step 5: Verify Installer Integrity</h1><p>Always verify the SHA256 checksum before executing the installer.</p><pre class="ql-syntax" spellcheck="false">shasum -a 256 ~/Anaconda3-2024.10-1-Linux-x86_64.sh
+</pre><p>Compare the generated checksum with the SHA256 hash published on the Anaconda archive page.</p><p>This ensures that the installer has not been tampered with.</p><p><img src="/images/1785223510525-image.png"></p><h1>Step 6: Run the Installer</h1><pre class="ql-syntax" spellcheck="false">bash Anaconda3-2024.10-1-Linux-x86_64.sh
+</pre><p><img src="/images/1785223618082-image.png"></p><p>Press Enter Keep on clicking More till reach the end</p><p><img src="/images/1785223741089-image.png"></p><p>Press Enter</p><p><img src="/images/1785223817917-image.png"></p><p><img src="/images/1785224007351-image.png"></p><p>Open New session / restart vs code</p><p><img src="/images/1785224084690-image.png"></p><p>After that you can create conda env and activate it and run your script</p><h3>Step 6.1) Create a new Conda environment</h3><pre class="ql-syntax" spellcheck="false">
 conda create -n resource-test python=3.12 -y
 
 
 </pre><p>You can use any recent Python version (3.10–3.13).</p><h3>Step 6.2)  Activate the environment</h3><pre class="ql-syntax" spellcheck="false">
 conda activate resource-test
-</pre><p><br></p><p><br></p><p>Follow the installation prompts.</p><p>Install into your home directory, for example:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">/home/&lt;username&gt;/anaconda3
-</pre><p>Avoid installing under:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">/root/
-</pre><p>unless you intentionally require a system-wide installation.</p><p><br></p><h1>Step 7: Conda Initialization</h1><p>During installation, Conda will ask:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">Do you wish the installer to initialize Anaconda3
+</pre><p>Follow the installation prompts.</p><p>Install into your home directory, for example:</p><pre class="ql-syntax" spellcheck="false">/home/&lt;username&gt;/anaconda3
+</pre><p>Avoid installing under:</p><pre class="ql-syntax" spellcheck="false">/root/
+</pre><p>unless you intentionally require a system-wide installation.</p><h1>Step 7: Conda Initialization</h1><p>During installation, Conda will ask:</p><pre class="ql-syntax" spellcheck="false">Do you wish the installer to initialize Anaconda3
 by running conda init?
-</pre><p>It will also display:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">You can undo this by running
+</pre><p>It will also display:</p><pre class="ql-syntax" spellcheck="false">You can undo this by running
 
 conda init --reverse $SHELL
 
 [yes|no]
-</pre><h2>Recommended: YES</h2><p>Choosing <strong>yes</strong>:</p><p><br></p><p><br></p><ul><li>Automatically initializes Conda whenever a terminal opens.</li><li>Adds the required configuration to <code>.bashrc</code>.</li><li>Makes Conda immediately available.</li></ul><p>Example:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">modified      /home/user/.bashrc
+</pre><h2>Recommended: YES</h2><p>Choosing <strong>yes</strong>:</p><ul><li>Automatically initializes Conda whenever a terminal opens.</li><li>Adds the required configuration to <code>.bashrc</code>.</li><li>Makes Conda immediately available.</li></ul><p>Example:</p><pre class="ql-syntax" spellcheck="false">modified      /home/user/.bashrc
 
 ==&gt; For changes to take effect, close and re-open your current shell. &lt;==
-</pre><p>If you prefer manual activation each time, choose <strong>no</strong>.</p><p><br></p><h1>Step 8: Verify the New Installation</h1><p>After installation:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">env | grep CONDA
-</pre><p>Example:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">CONDA_EXE=/home/user/anaconda3/bin/conda
+</pre><p>If you prefer manual activation each time, choose <strong>no</strong>.</p><h1>Step 8: Verify the New Installation</h1><p>After installation:</p><pre class="ql-syntax" spellcheck="false">env | grep CONDA
+</pre><p>Example:</p><pre class="ql-syntax" spellcheck="false">CONDA_EXE=/home/user/anaconda3/bin/conda
 CONDA_PREFIX=/root/miniconda3
 CONDA_PROMPT_MODIFIER=(base)
 _CE_CONDA=
 CONDA_SHLVL=1
 CONDA_PYTHON_EXE=/home/user/anaconda3/bin/python
 CONDA_DEFAULT_ENV=base
-</pre><p>Notice that <code>CONDA_PREFIX</code> may still point to the old root installation.</p><p><br></p><h1>Step 9: Force Conda to Use the User Installation</h1><p>Append the following lines to your <code>.bashrc</code>.</p><p>Replace the path with your own installation directory.</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">echo -e '\n# Force Conda to use user installation
+</pre><p>Notice that <code>CONDA_PREFIX</code> may still point to the old root installation.</p><h1>Step 9: Force Conda to Use the User Installation</h1><p>Append the following lines to your <code>.bashrc</code>.</p><p>Replace the path with your own installation directory.</p><pre class="ql-syntax" spellcheck="false">echo -e '\n# Force Conda to use user installation
 export CONDA_PREFIX="/home/&lt;username&gt;/anaconda3"
 export CONDA_DEFAULT_ENV="base"' &gt;&gt; ~/.bashrc
-</pre><p>Reload the shell.</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">source ~/.bashrc
+</pre><p>Reload the shell.</p><pre class="ql-syntax" spellcheck="false">source ~/.bashrc
 </pre><h1>Step 10: Verify Again</h1><pre class="ql-syntax" spellcheck="false">env | grep CONDA
-</pre><p>Expected output:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">CONDA_EXE=/home/&lt;username&gt;/anaconda3/bin/conda
+</pre><p>Expected output:</p><pre class="ql-syntax" spellcheck="false">CONDA_EXE=/home/&lt;username&gt;/anaconda3/bin/conda
 CONDA_PREFIX=/home/&lt;username&gt;/anaconda3
 CONDA_PROMPT_MODIFIER=(base)
 _CE_CONDA=
 CONDA_SHLVL=1
 CONDA_PYTHON_EXE=/home/&lt;username&gt;/anaconda3/bin/python
 CONDA_DEFAULT_ENV=base
-</pre><p>Now the entire Conda environment points to the user installation.</p><p><br></p><h1>Restoring a Conda-Packed Environment</h1><p>If you receive a Conda environment packed using <code>conda-pack</code>, restore it as follows.</p><p>Create the destination directory:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">mkdir -p /home/&lt;username&gt;/my_new_ml_env
-</pre><p>Extract the archive:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">tar -xvzf /home/&lt;username&gt;/my_new_ml_env.tar.gz \
+</pre><p>Now the entire Conda environment points to the user installation.</p><h1>Restoring a Conda-Packed Environment</h1><p>If you receive a Conda environment packed using <code>conda-pack</code>, restore it as follows.</p><p>Create the destination directory:</p><pre class="ql-syntax" spellcheck="false">mkdir -p /home/&lt;username&gt;/my_new_ml_env
+</pre><p>Extract the archive:</p><pre class="ql-syntax" spellcheck="false">tar -xvzf /home/&lt;username&gt;/my_new_ml_env.tar.gz \
 -C /home/&lt;username&gt;/my_new_ml_env
-</pre><p>Activate the environment:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">source /home/&lt;username&gt;/my_new_ml_env/bin/activate
-</pre><p>Run:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">conda-unpack
-</pre><p>Or execute all commands together:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">mkdir -p /home/&lt;username&gt;/my_new_ml_env
+</pre><p>Activate the environment:</p><pre class="ql-syntax" spellcheck="false">source /home/&lt;username&gt;/my_new_ml_env/bin/activate
+</pre><p>Run:</p><pre class="ql-syntax" spellcheck="false">conda-unpack
+</pre><p>Or execute all commands together:</p><pre class="ql-syntax" spellcheck="false">mkdir -p /home/&lt;username&gt;/my_new_ml_env
 
 tar -xvzf /home/&lt;username&gt;/my_new_ml_env.tar.gz \
 -C /home/&lt;username&gt;/my_new_ml_env
@@ -1284,32 +1284,32 @@ tar -xvzf /home/&lt;username&gt;/my_new_ml_env.tar.gz \
 source /home/&lt;username&gt;/my_new_ml_env/bin/activate
 
 conda-unpack
-</pre><h1>Why Doesn't <code>conda env list</code> Show the Environment?</h1><p>A packed Conda environment is simply an extracted directory.</p><p>It is <strong>not automatically registered</strong> with Conda.</p><p>Therefore:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">conda env list
-</pre><p>will <strong>not</strong> display it.</p><p><br></p><h1>Register the Environment with Conda</h1><p>Create a symbolic link inside Conda's <code>envs</code> directory.</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">ln -s /home/&lt;username&gt;/my_new_ml_env \
+</pre><h1>Why Doesn't <code>conda env list</code> Show the Environment?</h1><p>A packed Conda environment is simply an extracted directory.</p><p>It is <strong>not automatically registered</strong> with Conda.</p><p>Therefore:</p><pre class="ql-syntax" spellcheck="false">conda env list
+</pre><p>will <strong>not</strong> display it.</p><h1>Register the Environment with Conda</h1><p>Create a symbolic link inside Conda's <code>envs</code> directory.</p><pre class="ql-syntax" spellcheck="false">ln -s /home/&lt;username&gt;/my_new_ml_env \
       /home/&lt;username&gt;/anaconda3/envs/my_new_ml_env
-</pre><p>Now verify:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">conda env list
-</pre><p>Example:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false"># conda environments:
+</pre><p>Now verify:</p><pre class="ql-syntax" spellcheck="false">conda env list
+</pre><p>Example:</p><pre class="ql-syntax" spellcheck="false"># conda environments:
 #
 base             /home/&lt;username&gt;/anaconda3
 my_new_ml_env    /home/&lt;username&gt;/anaconda3/envs/my_new_ml_env
-</pre><p>The environment is now recognized by Conda.</p><p><br></p><h1>Useful Commands</h1><p>Check Conda version:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">conda --version
-</pre><p>Check Python version:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">python --version
-</pre><p>List environments:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">conda env list
-</pre><p>Activate an environment:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">conda activate &lt;environment_name&gt;
-</pre><p>Deactivate:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">conda deactivate
-</pre><p>Check Conda environment variables:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">env | grep CONDA
-</pre><h1>Best Practices</h1><ul><li>Install Conda inside your home directory.</li><li>Avoid using a root-owned Conda installation unless required.</li><li>Verify the installer checksum before installation.</li><li>Ensure <code>CONDA_PREFIX</code> points to the correct user installation.</li><li>Use <code>conda-unpack</code> after restoring packed environments.</li><li>Register packed environments with a symbolic link if you want them to appear in <code>conda env list</code>.</li><li>Keep the base environment minimal and create separate environments for different projects.</li></ul><h1>Troubleshooting</h1><h2>Conda still points to <code>/root</code></h2><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">unset CONDA_EXE CONDA_PREFIX CONDA_PROMPT_MODIFIER \
+</pre><p>The environment is now recognized by Conda.</p><h1>Useful Commands</h1><p>Check Conda version:</p><pre class="ql-syntax" spellcheck="false">conda --version
+</pre><p>Check Python version:</p><pre class="ql-syntax" spellcheck="false">python --version
+</pre><p>List environments:</p><pre class="ql-syntax" spellcheck="false">conda env list
+</pre><p>Activate an environment:</p><pre class="ql-syntax" spellcheck="false">conda activate &lt;environment_name&gt;
+</pre><p>Deactivate:</p><pre class="ql-syntax" spellcheck="false">conda deactivate
+</pre><p>Check Conda environment variables:</p><pre class="ql-syntax" spellcheck="false">env | grep CONDA
+</pre><h1>Best Practices</h1><ul><li>Install Conda inside your home directory.</li><li>Avoid using a root-owned Conda installation unless required.</li><li>Verify the installer checksum before installation.</li><li>Ensure <code>CONDA_PREFIX</code> points to the correct user installation.</li><li>Use <code>conda-unpack</code> after restoring packed environments.</li><li>Register packed environments with a symbolic link if you want them to appear in <code>conda env list</code>.</li><li>Keep the base environment minimal and create separate environments for different projects.</li></ul><h1>Troubleshooting</h1><h2>Conda still points to <code>/root</code></h2><pre class="ql-syntax" spellcheck="false">unset CONDA_EXE CONDA_PREFIX CONDA_PROMPT_MODIFIER \
 CONDA_SHLVL CONDA_PYTHON_EXE CONDA_DEFAULT_ENV
 
 source ~/.bashrc
-</pre><h2><code>conda</code> command not found</h2><p>Reload your shell:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">source ~/.bashrc
-</pre><p>or initialize Conda manually:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">~/anaconda3/bin/conda init bash
-</pre><p>Restart the terminal.</p><h2><code>conda env list</code> does not show a restored environment</h2><p>Packed environments are not automatically registered.</p><p>Create a symbolic link:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">ln -s /path/to/environment \
+</pre><h2><code>conda</code> command not found</h2><p>Reload your shell:</p><pre class="ql-syntax" spellcheck="false">source ~/.bashrc
+</pre><p>or initialize Conda manually:</p><pre class="ql-syntax" spellcheck="false">~/anaconda3/bin/conda init bash
+</pre><p>Restart the terminal.</p><h2><code>conda env list</code> does not show a restored environment</h2><p>Packed environments are not automatically registered.</p><p>Create a symbolic link:</p><pre class="ql-syntax" spellcheck="false">ln -s /path/to/environment \
       ~/anaconda3/envs/&lt;environment_name&gt;
-</pre><p>Then verify:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">conda env list
-</pre><h2>Verify Active Environment</h2><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">echo $CONDA_PREFIX
-</pre><p>or</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">env | grep CONDA
-</pre><p>Both should point to your user installation under:</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">/home/&lt;username&gt;/anaconda3
+</pre><p>Then verify:</p><pre class="ql-syntax" spellcheck="false">conda env list
+</pre><h2>Verify Active Environment</h2><pre class="ql-syntax" spellcheck="false">echo $CONDA_PREFIX
+</pre><p>or</p><pre class="ql-syntax" spellcheck="false">env | grep CONDA
+</pre><p>Both should point to your user installation under:</p><pre class="ql-syntax" spellcheck="false">/home/&lt;username&gt;/anaconda3
 </pre></article>
 
     <div class="share-row">
