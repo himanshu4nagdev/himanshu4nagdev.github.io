@@ -7,7 +7,7 @@
   <title>Blog — Himanshu Nagdev</title>
   <meta name="description" content="Writing on AI infrastructure, MLOps and building things that ship, by Himanshu Nagdev.">
   <link rel="canonical" href="https://himanshunagdev.in/blogs">
-  <link rel="icon" href="/images/1784812640498-him.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 100 100&#39;%3E%3Ctext y=&#39;.9em&#39; font-size=&#39;90&#39;%3E⚡%3C/text%3E%3C/svg%3E">
   <style>
     :root {
       --bg: #f8fafc;
@@ -658,6 +658,34 @@
       height: 170px;
       object-fit: cover;
       background: var(--bg-elev);
+      cursor: zoom-in;
+    }
+
+    /* Hover-to-zoom preview for certificate cover images — a fixed, best-fit overlay
+       so a real certificate scan stays readable instead of only the cropped card thumbnail. */
+    .cert-zoom-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .15s ease;
+    }
+
+    .cert-zoom-overlay.visible {
+      opacity: 1;
+    }
+
+    .cert-zoom-overlay img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
     }
 
     .cert-card-body {
@@ -862,6 +890,7 @@
     .event-card {
       display: flex;
       flex-direction: column;
+      position: relative;
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -956,33 +985,21 @@
       overflow: hidden;
     }
 
-    .event-desc.expanded {
-      display: block;
-      -webkit-line-clamp: unset;
-      overflow: visible;
-    }
-
-    .event-read-more {
-      align-self: flex-start;
-      background: none;
-      border: none;
-      padding: 0;
-      margin: 0 0 18px;
-      color: var(--accent-2);
-      font-weight: 700;
-      font-size: 0.88rem;
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    .event-read-more:hover {
-      text-decoration: underline;
-    }
-
     .event-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .event-detail-actions {
+      max-width: 720px;
+      margin: 40px auto 0;
+      padding: 0 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     /* Blogs listing */
@@ -1240,17 +1257,8 @@
 
     <section class="section" style="padding-top:0;">
       <div class="container">
-        
+        <p class="section-lead" style="margin:0;">No posts published yet — check back soon.</p>
         <div class="blog-grid">
-          <a class="blog-card" href="/blogs/conda-installation-and-setup-guide-linux" style="text-decoration:none;">
-            
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">Conda Installation and Setup Guide (Linux)</h3>
-              <div class="blog-card-meta"><span>Jul 2026</span><span class="dot-sep"></span><span>4 min read</span></div>
-              <p class="blog-card-excerpt">A step-by-step guide to installing and setting up Conda/Anaconda on Linux under your own home directory instead of a root-owned install.</p>
-              
-            </div>
-          </a>
         </div>
       </div>
     </section>
