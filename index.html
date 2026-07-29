@@ -729,6 +729,33 @@
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
     }
 
+    /* The overlay itself stays pointer-events:none (so it never covers/blocks the thumbnail
+       underneath and re-triggers its own mouseleave on desktop) — only this button opts back
+       into being clickable, which is the one thing touch devices need since they have no hover
+       to close it with. */
+    .cert-zoom-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: none;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 1.8rem;
+      line-height: 1;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    .cert-zoom-close:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
     .cert-card-body {
       padding: 26px;
     }
@@ -1522,18 +1549,30 @@
       var zoomOverlay = document.createElement('div');
       zoomOverlay.className = 'cert-zoom-overlay';
       var zoomImg = document.createElement('img');
+      var zoomClose = document.createElement('button');
+      zoomClose.type = 'button';
+      zoomClose.className = 'cert-zoom-close';
+      zoomClose.setAttribute('aria-label', 'Close');
+      zoomClose.innerHTML = '&times;';
       zoomOverlay.appendChild(zoomImg);
+      zoomOverlay.appendChild(zoomClose);
       document.body.appendChild(zoomOverlay);
+
+      function openZoom(cover) {
+        zoomImg.src = cover.src;
+        zoomImg.alt = cover.alt;
+        zoomOverlay.classList.add('visible');
+      }
+      function closeZoom() {
+        zoomOverlay.classList.remove('visible');
+      }
+
       certCovers.forEach(function (cover) {
-        cover.addEventListener('mouseenter', function () {
-          zoomImg.src = cover.src;
-          zoomImg.alt = cover.alt;
-          zoomOverlay.classList.add('visible');
-        });
-        cover.addEventListener('mouseleave', function () {
-          zoomOverlay.classList.remove('visible');
-        });
+        cover.addEventListener('mouseenter', function () { openZoom(cover); });
+        cover.addEventListener('mouseleave', closeZoom);
+        cover.addEventListener('click', function () { openZoom(cover); });
       });
+      zoomClose.addEventListener('click', closeZoom);
     }
 
     // Project filters
