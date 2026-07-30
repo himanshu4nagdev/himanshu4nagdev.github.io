@@ -4,51 +4,14 @@
   <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <title>Himanshu Nagdev — MLOps | DevOps | AI Engineer | Solutions Architect</title>
-  <meta name="description" content="Portfolio of Himanshu Nagdev, System Engineer at IIIT Delhi. Production-ready AI deployments, MLOps, DevOps, Kubernetes, NVIDIA DGX operations, automation and QA.">
-  <meta name="keywords" content="MLOps, DevOps, AI Engineer, Solutions Architect, LLMOps, RAG, Kubernetes, Docker, NVIDIA DGX, GPU infrastructure, Kafka, CI/CD, Python, GenAI, Cloud Architecture, System Design, Delhi NCR India">
-  <meta name="author" content="Himanshu Nagdev">
-
-  <meta property="og:title" content="Himanshu Nagdev — MLOps | DevOps | AI Engineer | Solutions Architect">
-  <meta property="og:description" content="Portfolio of Himanshu Nagdev, System Engineer at IIIT Delhi. Production-ready AI deployments, MLOps, DevOps, Kubernetes, NVIDIA DGX operations, automation and QA.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://himanshunagdev.in/">
-  <meta property="og:image" content="/images/1784812628989-him.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Himanshu Nagdev — MLOps | DevOps | AI Engineer | Solutions Architect">
-  <meta name="twitter:description" content="Portfolio of Himanshu Nagdev, System Engineer at IIIT Delhi. Production-ready AI deployments, MLOps, DevOps, Kubernetes, NVIDIA DGX operations, automation and QA.">
-
-  <link rel="canonical" href="https://himanshunagdev.in/">
+  <title>Why Your RAG Keeps Lying to You (And How to Make It Stop) — Blog | Himanshu Nagdev</title>
+  <meta name="description" content="A field guide to fixing hallucinations in a retrieval system — written for people who don&#39;t want a PhD to follow along.">
+  <meta property="og:title" content="Why Your RAG Keeps Lying to You (And How to Make It Stop)">
+  <meta property="og:description" content="A field guide to fixing hallucinations in a retrieval system — written for people who don&#39;t want a PhD to follow along.">
+  <meta property="og:type" content="article">
+  
+  <link rel="canonical" href="https://himanshunagdev.in/blogs/why-your-rag-keeps-lying-to-you-and-how-to-make-it-stop">
   <link rel="icon" href="/images/1784812640498-him.jpg">
-
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Himanshu Nagdev",
-  "jobTitle": "System Engineer, Centre of Artificial Intelligence",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "IIIT Delhi"
-  },
-  "url": "https://himanshunagdev.in/",
-  "sameAs": [
-    "https://www.linkedin.com/in/hnagdev/",
-    "https://github.com/himanshu4nagdev",
-    "https://medium.com/@himanshunagdev.hn",
-    "https://www.youtube.com/@himanshu4nagdev",
-    "https://topmate.io/himanshu_nagdev"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Delhi NCR",
-    "addressCountry": "IN"
-  }
-}
-  </script>
-
   <style>
     :root {
       --bg: #f8fafc;
@@ -1293,13 +1256,13 @@
       <div class="nav-right">
         <nav id="nav-menu" aria-label="Primary">
           <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#projects">Projects</a></li>
             <li><a href="/events">Events</a></li>
-            <li><a href="/blogs">Blogs</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#work-with-me">Work With Me</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/blogs" aria-current="true">Blogs</a></li>
+            <li><a href="/#certifications">Certifications</a></li>
+            <li><a href="/#work-with-me">Work With Me</a></li>
+            <li><a href="/#contact">Contact</a></li>
           </ul>
         </nav>
         
@@ -1314,187 +1277,44 @@
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero" id="hero" aria-label="Hero">
-      <div class="hero-content">
-        <div class="hero-photo"><img src="/images/1784812640498-him.jpg" alt="Himanshu Nagdev"></div>
-        <div class="hero-eyebrow"><span class="dot" aria-hidden="true"></span>Learning System Design &amp; Scalable Architecture&#39;s</div>
-        <h1>Hi, I&rsquo;m <span class="gradient">Himanshu Nagdev</span></h1>
-        <p class="hero-role"><strong>System Engineer, Centre of AI</strong> — IIIT Delhi</p>
-        <p class="hero-tagline">AI Infrastructure • MLOps • DevOps • Solutions Architecture — building production-ready AI deployments, GPU clusters and automation pipelines that actually ship.</p>
+  <main>
+    <div class="article-header">
+      <a href="/blogs" class="back-link" style="display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-weight:600;font-size:0.92rem;margin-bottom:24px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back to Blog
+      </a>
+      <h1>Why Your RAG Keeps Lying to You (And How to Make It Stop)</h1>
+      <div class="article-meta">
+        <span>July 29, 2026</span><span class="dot-sep"></span>
+        <span>11 min read</span>
+        <span class="dot-sep"></span>
+        <span>3 views</span>
+      </div>
+      
+    </div>
+
+    
+
+    <article class="article-body"><p>A few weeks ago a researcher I know hit a wall. He'd built a small question-answering system on his own GPU, wired up an open-source Llama model, pointed it at his documents, and asked it questions. It answered confidently. It also answered <em>wrong</em> — inventing facts that were nowhere in his data.</p><p>This is one of the most common failures in applied AI, and the frustrating part is that the model isn't broken. It's doing exactly what it was designed to do. To understand why it lies, you first have to understand what it's actually doing — and once you do, the fix stops being guesswork.</p><p>Let me walk you through it the way I'd explain it to a smart friend over coffee.</p><h2>First, what is RAG, really?</h2><p>A large language model like Llama or GPT is, at heart, a very sophisticated pattern-completer. It learned from a fixed snapshot of text and it carries that knowledge frozen in its weights. Ask it something it never saw, or something specific to <em>your</em> documents, and it doesn't say "I don't know." It does the one thing it always does: it produces the most plausible-sounding continuation. Plausible is not the same as true. That gap is what we call a <strong>hallucination</strong>.</p><p><strong>Retrieval-Augmented Generation (RAG)</strong> is the fix. The idea is simple and elegant: instead of trusting the model's memory, you give it an open-book exam. Before the model answers, you <em>retrieve</em> the relevant pages from your own documents and hand them to it along with the question. Now the model isn't recalling — it's reading. RAG augments the language model with fresh, trusted data pulled from an external knowledge source, so the answer is grounded in something real instead of invented.</p><p>Every RAG system, from a weekend prototype to a system serving millions, is built from the same handful of parts.</p><h2>The architecture, in plain English</h2><p>Think of RAG in two phases: preparing the library, and answering the question.</p><p><img src="/images/1785318601908-rag-architecture-two-phase-pipeline-v2.svg"></p><p><strong>Phase 1 — Building the library (this happens once, ahead of time):</strong></p><ol><li><strong>Ingest and chunk.</strong> You take your raw documents — PDFs, notes, manuals — and slice them into smaller pieces called <em>chunks</em>. A chunk might be a paragraph or a section. Why slice? Because you'll be feeding these pieces to the model later, and it can only hold so much text at once.</li><li><strong>Embed.</strong> Each chunk is run through an <em>embedding model</em> (an encoder) that turns the text into a list of numbers — a <em>vector</em>. The clever bit: chunks that mean similar things end up as vectors that sit close together in mathematical space. "The dog barked" and "the canine howled" land near each other even though they share no words.</li><li><strong>Store.</strong> You save all these vectors in a <em>vector database</em> so you can search them fast.</li></ol><p><strong>Phase 2 — Answering a question (this happens every time someone asks something):</strong></p><ol><li><strong>Retrieve.</strong> The user's question gets embedded into a vector too. The system finds the chunks whose vectors are closest to the question's vector — usually measured by <em>cosine similarity</em>, which is just a way of asking "which of these point in the same direction as my question?" You grab the top few. That "top few" is a knob called <strong>top-k</strong> (top-3, top-5, and so on).</li><li><strong>Augment.</strong> You paste those retrieved chunks into the prompt, alongside the original question.</li><li><strong>Generate.</strong> The language model reads the question <em>and</em> the supporting material, and writes an answer grounded in what you gave it.</li></ol><p>Query goes in → relevant documents come out of the library → question and documents go to the model together → grounded answer comes out. That's the whole game.</p><p>If you want to <em>see</em> this drawn out cleanly, these are the clearest architecture references I point people to:</p><ul><li><strong>NVIDIA's RAG glossary</strong> — a well-labelled three-phase diagram (extraction, retrieval, generation): <a href="https://www.nvidia.com/en-us/glossary/retrieval-augmented-generation/" rel="noopener noreferrer" target="_blank">https://www.nvidia.com/en-us/glossary/retrieval-augmented-generation/</a></li><li><strong>IBM's RAG architecture pattern</strong> — build-time vs. run-time split, very close to how production systems are actually laid out: <a href="https://www.ibm.com/think/architectures/patterns/genai-rag" rel="noopener noreferrer" target="_blank">https://www.ibm.com/think/architectures/patterns/genai-rag</a></li><li><strong>The original 2020 paper</strong> ("Retrieval-Augmented Generation for Knowledge-Intensive Tasks", Facebook AI Research) — where the term was coined: <a href="https://arxiv.org/abs/2005.11401" rel="noopener noreferrer" target="_blank">https://arxiv.org/abs/2005.11401</a></li><li><strong>A 2025 survey of RAG architectures</strong> if you want the deeper, current landscape: <a href="https://arxiv.org/pdf/2506.00054" rel="noopener noreferrer" target="_blank">https://arxiv.org/pdf/2506.00054</a></li></ul><h2>So why was the researcher's system still hallucinating?</h2><p>Here's the key insight most beginners miss: <strong>if the model gets the wrong pages, it will confidently answer from the wrong pages.</strong> RAG doesn't stop hallucination by magic — it stops it <em>only if retrieval succeeds</em>. Bad retrieval in, bad answer out. So when a RAG system lies, the problem is usually in the plumbing before the model, not the model itself.</p><p>Let's diagnose it in the order I'd actually check things.</p><h3>1. Chunk size — the most underrated knob</h3><p>If your chunks are too big, each one contains several ideas, and its embedding becomes a muddy average of all of them — good at matching nothing in particular. If chunks are too small, you slice a single fact in half and neither piece makes sense on its own. There's no universal right answer; it depends entirely on your documents. Dense technical text often wants smaller chunks; flowing narrative wants larger ones. This was the first thing I told him to tune, and I stand by it as the right first move.</p><h3>2. Top-k — how many pages you hand over</h3><p>Retrieve too few chunks and you might miss the one that held the answer. Retrieve too many and you bury the useful chunk under noise — and models genuinely get distracted by irrelevant context. Nudging top-k up or down is a legitimate lever, and it was the second dial I had him touch.</p><h3>3. The retriever itself — dense vs. sparse, and BM25</h3><p>This is where it gets interesting. Everything above uses <em>dense</em> retrieval — matching by meaning via embeddings. There's an older, complementary approach called <strong>sparse</strong> retrieval, and its most famous workhorse is <strong>BM25</strong>. BM25 matches by <em>keywords</em> — it's essentially a very refined version of counting how often and how distinctively your query words appear in a document.</p><p>Why does this matter? Dense retrieval is great at meaning but can whiff on exact terms — product codes, drug names, error numbers, rare acronyms. BM25 nails those because it's literally looking for the word. The strongest real-world systems use <strong>hybrid retrieval</strong>: run both, then combine the results. His documents were full of precise terminology, so I flagged BM25 alongside the embeddings as potentially the single biggest fix — I'd first run into this idea at a workshop, and it's one of those things that sounds academic until it quietly rescues a struggling system.</p><h3>4. The encoder — the quiet game-changer</h3><p>The embedding model that turns text into vectors is called the encoder, and <em>which one you pick matters enormously.</em> A general-purpose encoder trained on web text has a fuzzy sense of specialized vocabulary. Feed it biomedical documents and it can't tell two different proteins apart, because it never learned they were different — so it retrieves the wrong chunk, and <em>then</em> the model hallucinates from it.</p><p>This is why domain-specific encoders exist. <strong>SapBERT</strong> and <strong>BioLORD</strong>, for instance, are tuned on biomedical text and understand that vocabulary the way a specialist would. For a specialized corpus, swapping a generic encoder for a domain-tuned one can transform retrieval quality — it's one of the fixes I reach for early when the data is technical. The rule of thumb I keep coming back to is that it all depends on the type of dataset. There is no best encoder; there's only the best encoder <em>for your data</em>.</p><h3>5. Your storage shortcut — is it fine?</h3><p>For small datasets, a trick I use is to skip the fancy vector database entirely — just pickle a dictionary and run cosine similarity directly. <strong>This is completely legitimate.</strong> A dedicated vector database earns its keep at scale — millions of chunks, many users, constant updates. For a few thousand chunks on a single GPU, a plain in-memory search is simpler, faster to set up, and has fewer moving parts to break. Knowing <em>when you don't need the heavy machinery</em> is itself a mark of experience. Don't let anyone shame you into infrastructure you don't need yet.</p><h2>What about that "copy-cat model" and "garbage prompt" business?</h2><p>Our conversation also drifted into a related but separate topic — "copy-cat models" and "garbage prompts" — which is really one thing: <strong>distillation</strong>. It's worth clearing up because it comes up in interviews and it's easy to garble.</p><p>Distillation is how you take a big, expensive "teacher" model and train a small, cheap "student" model to imitate it. You feed the same prompts to the teacher, capture its responses, and train the student to reproduce them. The student ends up punching well above its size — it inherits the teacher's behavior without the teacher's cost. That's why people call distilled models "copy-cats": the small model is, in a real sense, copying a bigger one.</p><p>The "garbage prompt" idea is a fuzzy pointer at the same thing: you can probe a model with a huge variety of prompts — including weird or synthetic ones — to extract its behavior and train a student on the results. The claim that some Chinese labs distill from other models is a widely discussed and contested talking point, not settled fact, so I treat it as industry gossip rather than something to assert as truth. The <em>technique</em> of distillation, though, is completely mainstream and worth knowing.</p><p>Two things to keep straight, because interviewers love the distinction:</p><ul><li><strong>Distillation</strong> shrinks a model. It has nothing directly to do with hallucination.</li><li><strong>RAG</strong> grounds a model. It's about <em>what the model reads</em>, not how big it is.</li></ul><p>Mixing these up is a classic beginner tell. Keeping them separate is a small signal that you actually understand the field.</p><h2>So — was the advice I gave any good?</h2><p>I'll grade my own advice honestly, because this is the part that turns a reader into a decision-maker.</p><p><strong>Tune chunk size and top-k</strong> — right, and the correct first move. Cheap, fast, no new components. Always start here.</p><p><strong>Consider BM25 / hybrid retrieval</strong> — right, and often the highest-impact fix when documents contain precise terminology. This is where I'd go next.</p><p><strong>Change the encoder to a domain-specific one</strong> — right, especially for specialized data. If retrieval is pulling the wrong chunks, a better encoder fixes the disease; everything downstream is treating symptoms.</p><p><strong>Switch from Llama to at least GPT-4o-mini</strong> — this is the one I'd walk back a little. It <em>might</em> help, but it's the least targeted move on my list, and here's the reasoning: <strong>if retrieval is handing over the wrong chunks, a smarter generator will just hallucinate more eloquently from the wrong material.</strong> A better model does not fix bad retrieval. So while GPT-4o-mini is a strong, cheap, well-behaved model and a perfectly reasonable choice, swapping the generator should be <em>last</em>, not first — after you've confirmed retrieval is actually feeding it the right pages. Otherwise you're paying an API bill to make the same mistake with better grammar. If I were advising him again, I'd tell him to leave the model alone until the retrieval side was clean.</p><p>There's also a self-hosting angle worth naming: he chose Llama on his own GPU for a reason — privacy, cost, control. Moving to a hosted API means his data leaves the building. That's not a dealbreaker, but it's a real trade-off, not a free upgrade.</p><h2>The decision framework to take away</h2><p>If you remember nothing else, remember the order of operations. When a RAG system hallucinates, <strong>fix it from the retrieval side inward</strong>, because that's where the problem almost always lives and where the cheapest fixes are:</p><ol><li><strong>Look at what got retrieved first.</strong> Before touching anything, inspect the chunks the system actually pulled for a failing question. Were they relevant? This one step tells you whether your problem is retrieval or generation, and saves you from fixing the wrong half.</li><li><strong>Tune chunking and top-k.</strong> Cheap, immediate, no new parts.</li><li><strong>Add hybrid retrieval (dense + BM25).</strong> Especially if your data has precise terms.</li><li><strong>Upgrade the encoder to match your domain.</strong> The fix with the deepest leverage on specialized data.</li><li><strong>Only then, consider a stronger generator.</strong> Once you <em>know</em> the model is reading the right material and still fumbling.</li></ol><p>The mental model underneath all of it: <strong>a language model can only be as truthful as the context you feed it.</strong> RAG hallucinations are, nine times out of ten, retrieval failures wearing a generation costume. Fix what the model reads, and the lying mostly takes care of itself.</p><p>The researcher's system wasn't broken. It was just reading the wrong pages — and now you know exactly how to hand it the right ones.</p></article>
+
+    <div class="share-row">
+      <span>Share this post:</span>
+      <a class="btn btn-secondary" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fhimanshunagdev.in%2Fblogs%2Fwhy-your-rag-keeps-lying-to-you-and-how-to-make-it-stop" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-secondary" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fhimanshunagdev.in%2Fblogs%2Fwhy-your-rag-keeps-lying-to-you-and-how-to-make-it-stop&amp;text=Why%20Your%20RAG%20Keeps%20Lying%20to%20You%20(And%20How%20to%20Make%20It%20Stop)" target="_blank" rel="noopener">X / Twitter</a>
+    </div>
+
+    <div class="article-cta">
+      <div class="work-cta">
+        <p>Enjoyed this? I help teams ship production-grade AI deployments, CI/CD pipelines and MLOps. Let's talk.</p>
         <div class="btn-group">
-          <a class="btn btn-primary" href="#projects">View Projects</a>
-          <a class="btn btn-secondary" href="https://topmate.io/himanshu_nagdev" target="_blank" rel="noopener">Book a 1:1</a>
-          <a class="btn btn-secondary" href="https://www.linkedin.com/in/hnagdev/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-primary" href="https://topmate.io/himanshu_nagdev" target="_blank" rel="noopener">Book a 1:1 on Topmate</a>
+          <a class="btn btn-secondary" href="/blogs">More posts</a>
         </div>
       </div>
-      <div class="scroll-hint" aria-hidden="true">
-        <span>Scroll</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 13 12 18 17 13"></polyline><line x1="12" y1="18" x2="12" y2="6"></line></svg>
-      </div>
-    </section>
+    </div>
 
-    <section class="section" id="about" aria-labelledby="about-title">
+    <section style="padding: 48px 24px 48px;">
       <div class="container">
-        <span class="accent-line"></span>
-        <h2 id="about-title" class="section-title">About</h2>
-        <div class="about-grid">
-          <div class="about-copy">
-            <p>I’m a passionate, high-agency engineer with a diverse background in automation, AI/ML deployment and quality assurance — thriving at the intersection of innovation and efficiency. My journey began with technical drawings and hands-on projects during graduation, followed by product development and research automation at IIT Delhi. I contributed to the R&amp;D of high-end oscilloscopes at Keysight Technologies, sharpening my skills in regression testing and automation.</p>
-            <p>With expertise in Python, Selenium, Docker, Kubernetes and Linux — skills I applied to deploy and automate warehouse web applications at GreyOrange — I later expanded into the VLSI domain through a PG Diploma from IISc Bangalore, gaining hands-on chip-design experience. Today I channel all of that energy into creating production-ready deployments and performing rigorous QA on them at the Centre of Artificial Intelligence, IIIT Delhi. As a patent holder, I bring a creative edge to problem-solving and system optimization. Let’s connect to build something impactful.</p>
-          </div>
-          <div class="highlights" aria-label="Highlights">
-            <div class="highlight"><span class="value">7+ yrs</span><span class="label">Industry &amp; research experience</span></div>
-            <div class="highlight"><span class="value">NVIDIA DGX</span><span class="label">GPU cluster operations</span></div>
-            <div class="highlight"><span class="value">IIT → Keysight → GreyOrange → IIIT-D</span><span class="label">Career path</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="projects" aria-labelledby="projects-title">
-      <div class="container">
-        <span class="accent-line"></span>
-        <h2 id="projects-title" class="section-title">Projects</h2>
-        <p class="section-lead">System-design stories across AI, embedded systems, QA and production infrastructure. Each card maps a real problem to its architecture, my role and the measurable outcome.</p>
-
-        <div class="filters" role="group" aria-label="Filter projects by category">
-          <button class="filter-btn active" data-filter="live-webapps" aria-pressed="true">Live Webapps</button>
-          <button class="filter-btn" data-filter="automation" aria-pressed="false">Automation</button>
-          <button class="filter-btn" data-filter="xops" aria-pressed="false">XOps</button>
-          <button class="filter-btn" data-filter="embedded" aria-pressed="false">Embedded</button>
-          <button class="filter-btn" data-filter="vlsi" aria-pressed="false">VLSI</button>
-          <button class="filter-btn" data-filter="all" aria-pressed="false">All</button>
-        </div>
-
-        <div class="project-grid" id="project-grid">
-          <article class="project-card" data-category="live-webapps">
-            <img src="https://himanshunagdev.in/images/1784809586044-genai-learning-mentor.png" alt="GenAI Mentor" style="width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:16px;">
-            <span class="card-category">Live Webapps</span>
-            <span class="card-subcategory">In Project Phase</span>
-            <h3 class="card-title">GenAI Mentor</h3>
-            
-            <p class="card-desc">A flagship LLM-powered mentoring application that guides users through complex engineering topics using prompt engineering, retrieval-augmented generation and lightweight agent orchestration.</p>
-            <div class="chips"><span class="chip">Python</span><span class="chip">LLMs</span><span class="chip">RAG</span><span class="chip">Prompt Engineering</span></div>
-            
-            <a class="card-read" href="projects/genai-mentor" aria-label="Read more about GenAI Mentor">Read more →</a>
-          </article>
-          <article class="project-card hidden" data-category="embedded">
-            <img src="/images/1784813850205-iot-food-feeder.png" alt="IoT Smart Liquid Food Dispenser" style="width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:16px;">
-            <span class="card-category">Embedded</span>
-            
-            <h3 class="card-title">IoT Smart Liquid Food Dispenser</h3>
-            <div class="card-meta">Completed Jan 2017</div>
-            <p class="card-desc">It was my Final Year Project .An IOT liquid food dispenser system for animals has been developed to provide liquid food and indirectly solid food as well with monitoring system. However, typical existing automatic food dispenser systems provide only solid food without monitoring capabilities.This device consist of novel automated liquid food system that combines feed dispensing and monitoring food level as one process. The system designed is eco friendly as it disposes the waste water which can be used in watering a plant that can be used as a another kind of food for animals .Not only this the system has also featured an IOT technology for monitoring purpose in the system which provide real time sensor value on webpage using an API. This project if implemented for welfare of stray animals (dogs, cat, birds etc) or preventing biodiversity loss then it can help us to achieve smart city in an environment sector. This IOT Liquid food dispenser device can be used for commercial (by users having pet) as well as for social welfare (for stray animals, birds).</p>
-            <div class="chips"><span class="chip">IoT</span><span class="chip">Microcontroller</span><span class="chip">Sensors</span></div>
-            <div class="card-socials"><a href="https://www.instructables.com/IoT-Food-Feeder-for-Animals/" target="_blank" rel="noopener" aria-label="link"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></div>
-            <a class="card-read" href="projects/iot-smart-food-dispenser" aria-label="Read more about IoT Smart Liquid Food Dispenser">Read more →</a>
-          </article>
-          <article class="project-card hidden" data-category="embedded">
-            
-            <span class="card-category">Embedded</span>
-            
-            <h3 class="card-title">Research-Grade Test Equipment at IIT Delhi</h3>
-            
-            <p class="card-desc">Built automated measurement pipelines and lab instrumentation using LabVIEW, collecting reliable data for research experiments and laying the foundation for my test-automation career.</p>
-            <div class="chips"><span class="chip">LabVIEW</span><span class="chip">Instrumentation</span><span class="chip">Automation</span></div>
-            
-            <a class="card-read" href="projects/iitd-research-test-equipment" aria-label="Read more about Research-Grade Test Equipment at IIT Delhi">Read more →</a>
-          </article>
-          <article class="project-card" data-category="live-webapps">
-            <img src="/images/1784814022342-frontend.png" alt="Dr. Nagdev Clinic Website" style="width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:16px;">
-            <span class="card-category">Live Webapps</span>
-            <span class="card-subcategory">In Production</span>
-            <h3 class="card-title">Dr. Nagdev Clinic Website</h3>
-            <div class="card-meta">Completed Jul 2026</div>
-            <p class="card-desc">A modern, high-performance website for a physiotherapy practice with a secure admin dashboard — blog, testimonials, media gallery, patient history, and lead management, all editable without touching code.</p>
-            <div class="chips"></div>
-            
-            <a class="card-read" href="projects/dr-nagdev-clinic-website" aria-label="Read more about Dr. Nagdev Clinic Website">Read more →</a>
-          </article>
-          <article class="project-card" data-category="live-webapps">
-            <img src="/images/1785050620733-cloudbench.png" alt="CloudBench" style="width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:16px;">
-            <span class="card-category">Live Webapps</span>
-            <span class="card-subcategory">In Production</span>
-            <h3 class="card-title">CloudBench</h3>
-            <div class="card-meta">Completed Jul 2026</div>
-            <p class="card-desc">CloudBench is a browser-based robotics platform that lets students program real physical hardware remotely — a live camera, a real code editor, and one-click upload, all in one browser tab. Teach robotics, not wiring.</p>
-            <div class="chips"></div>
-            
-            <a class="card-read" href="projects/cloudbench" aria-label="Read more about CloudBench">Read more →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="certifications" aria-labelledby="certifications-title">
-      <div class="container">
-        <span class="accent-line"></span>
-        <h2 id="certifications-title" class="section-title">Certifications</h2>
-        <p class="section-lead">Credentials that back the tooling and systems I work with. More cards will be added as I complete new certifications.</p>
-
-        <div class="cert-grid">
-          <article class="cert-card">
-            <img class="cert-card-cover" src="/images/1785240255192-2026-03-01-03-17-page-0001.jpg" alt="LLM Application &amp; Prompt Design">
-            <div class="cert-card-body">
-              <span class="cert-badge">LLM Application &amp; Prompt Design</span>
-              <h3>LLM Application &amp; Prompt Design</h3>
-              <div class="rich-text-compact"><p>LLM Application &amp; Prompt Design</p>
-</div>
-              
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="work-with-me" aria-labelledby="work-title">
-      <div class="container">
-        <span class="accent-line"></span>
-        <h2 id="work-title" class="section-title">Work With Me</h2>
-        <div class="work-cta">
-          <p>I help teams ship production-grade AI deployments, CI/CD pipelines, automation and QA — whether you need a one-off architecture review, a Kubernetes GPU cluster that behaves for researchers, or an end-to-end MLOps process. Book a 1:1 on Topmate or reach out via email.</p>
-          <div class="btn-group">
-            <a class="btn btn-primary" href="https://topmate.io/himanshu_nagdev" target="_blank" rel="noopener">Book a 1:1 on Topmate</a>
-            <a class="btn btn-secondary" href="mailto:himanshunagdev.hn@gmail.com">Email Me</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <div class="container">
-        <span class="accent-line"></span>
-        <h2 id="contact-title" class="section-title">Contact</h2>
-        <p class="section-lead">The fastest way to reach me is LinkedIn or email. I typically respond within 24–48 hours.</p>
-
-        <div class="contact-grid">
-          <a class="contact-card" href="mailto:himanshunagdev.hn@gmail.com"  aria-label="Email">
-            <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
-            <div class="contact-card-text"><h4>Email</h4><span>himanshunagdev.hn@gmail.com</span></div>
-          </a>
-          <a class="contact-card" href="https://www.linkedin.com/in/hnagdev/" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></div>
-            <div class="contact-card-text"><h4>LinkedIn</h4><span>linkedin.com/in/hnagdev</span></div>
-          </a>
-          <a class="contact-card" href="https://github.com/himanshu4nagdev" target="_blank" rel="noopener" aria-label="GitHub">
-            <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></div>
-            <div class="contact-card-text"><h4>GitHub</h4><span>github.com/himanshu4nagdev</span></div>
-          </a>
-          <a class="contact-card" href="https://medium.com/@himanshunagdev.hn" target="_blank" rel="noopener" aria-label="Medium">
-            <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1.5 4.5h21c.828 0 1.5.672 1.5 1.5v12c0 .828-.672 1.5-1.5 1.5h-21c-.828 0-1.5-.672-1.5-1.5v-12c0-.828.672-1.5 1.5-1.5zm3.346 4.115c.153-.65.697-1.115 1.343-1.115h10.481c.646 0 1.19.465 1.343 1.115l1.869 7.77c.178.742-.348 1.49-1.115 1.49h-4.547v-5.6l-2.25-3.6-2.25 3.6v5.6h-4.547c-.767 0-1.293-.748-1.115-1.49l1.869-7.77z"/></svg></div>
-            <div class="contact-card-text"><h4>Medium</h4><span>@himanshunagdev.hn</span></div>
-          </a>
-          <a class="contact-card" href="https://www.youtube.com/@himanshu4nagdev" target="_blank" rel="noopener" aria-label="YouTube">
-            <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55A3.016 3.016 0 0 0 .499 6.186C0 8.048 0 12 0 12s0 3.952.499 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136c.5-1.862.5-5.814.5-5.814s0-3.952-.5-5.814zM9.545 15.5V8.5l6.272 3.5-6.272 3.5z"/></svg></div>
-            <div class="contact-card-text"><h4>YouTube</h4><span>@himanshu4nagdev</span></div>
-          </a>
-          <a class="contact-card" href="https://topmate.io/himanshu_nagdev" target="_blank" rel="noopener" aria-label="Topmate">
-            <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></div>
-            <div class="contact-card-text"><h4>Topmate</h4><span>Book a 1:1 session</span></div>
-          </a>
-        </div>
-
         
   <footer class="footer">
     <p>© <span id="year"></span> Himanshu Nagdev. Built with plain HTML, CSS and a little vanilla JS — deployed on Cloudflare Workers.</p>
@@ -1532,77 +1352,6 @@
         }
       });
     }
-
-    var certCovers = document.querySelectorAll('.cert-card-cover');
-    if (certCovers.length) {
-      var zoomOverlay = document.createElement('div');
-      zoomOverlay.className = 'cert-zoom-overlay';
-      var zoomImg = document.createElement('img');
-      var zoomClose = document.createElement('button');
-      zoomClose.type = 'button';
-      zoomClose.className = 'cert-zoom-close';
-      zoomClose.setAttribute('aria-label', 'Close');
-      zoomClose.innerHTML = '&times;';
-      zoomOverlay.appendChild(zoomImg);
-      zoomOverlay.appendChild(zoomClose);
-      document.body.appendChild(zoomOverlay);
-
-      function openZoom(cover) {
-        zoomImg.src = cover.src;
-        zoomImg.alt = cover.alt;
-        zoomOverlay.classList.add('visible');
-      }
-      function closeZoom() {
-        zoomOverlay.classList.remove('visible');
-      }
-
-      certCovers.forEach(function (cover) {
-        cover.addEventListener('mouseenter', function () { openZoom(cover); });
-        cover.addEventListener('mouseleave', closeZoom);
-        cover.addEventListener('click', function () { openZoom(cover); });
-      });
-      zoomClose.addEventListener('click', closeZoom);
-    }
-
-    // Project filters
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterButtons.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-pressed', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-pressed', 'true');
-
-        const filter = btn.dataset.filter;
-        projectCards.forEach(card => {
-          if (filter === 'all' || card.dataset.category === filter) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-      });
-    });
-
-    // Active nav on scroll
-    const sections = document.querySelectorAll('main section[id]');
-    const navItems = document.querySelectorAll('.nav-links a');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navItems.forEach(link => link.removeAttribute('aria-current'));
-          const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-          if (active) active.setAttribute('aria-current', 'true');
-        }
-      });
-    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-
-    sections.forEach(section => observer.observe(section));
   </script>
 </body>
 </html>
