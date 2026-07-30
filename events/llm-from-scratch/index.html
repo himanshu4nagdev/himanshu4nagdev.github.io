@@ -4,9 +4,9 @@
   <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — Himanshu Nagdev</title>
-  <meta name="description" content="Writing on AI infrastructure, MLOps and building things that ship, by Himanshu Nagdev.">
-  <link rel="canonical" href="https://himanshunagdev.in/blogs">
+  <title>LLM from Scratch — Events | Himanshu Nagdev</title>
+  <meta name="description" content="A hands-on walkthrough of Sebastian Raschka&#39;s &#39;LLMs from Scratch&#39; at AISS 2025, IIIT Delhi — tokenization, embeddings, self-attention, and transformer blocks, b">
+  <link rel="canonical" href="https://himanshunagdev.in/events/llm-from-scratch">
   <link rel="icon" href="/images/1784812640498-him.jpg">
   <style>
     :root {
@@ -1254,8 +1254,8 @@
           <ul class="nav-links">
             <li><a href="/#about">About</a></li>
             <li><a href="/#projects">Projects</a></li>
-            <li><a href="/events">Events</a></li>
-            <li><a href="/blogs" aria-current="true">Blogs</a></li>
+            <li><a href="/events" aria-current="true">Events</a></li>
+            <li><a href="/blogs">Blogs</a></li>
             <li><a href="/#certifications">Certifications</a></li>
             <li><a href="/#work-with-me">Work With Me</a></li>
             <li><a href="/#contact">Contact</a></li>
@@ -1274,50 +1274,26 @@
   </header>
 
   <main>
-    <section class="page-header">
-      <div class="container">
-        <span class="accent-line"></span>
-        <h2 class="section-title">Blog</h2>
-        <p class="section-lead">Writing on AI infrastructure, MLOps and building things that ship.</p>
-      </div>
-    </section>
+    <div class="article-header">
+      <a href="/events" class="back-link" style="display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-weight:600;font-size:0.92rem;margin-bottom:24px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back to Events
+      </a>
+      <div class="event-badges" style="justify-content:center;"><span class="event-type-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> In-Person</span><span class="event-status-badge event-status-delivered">Already Delivered</span></div>
+      <h1>LLM from Scratch</h1>
+      <div class="article-meta">July 31, 2025 • 2:30 PM IST • IIIT Delhi</div>
+    </div>
 
-    <section class="section" style="padding-top:0;">
-      <div class="container">
-        
-        <div class="blog-grid">
-          <a class="blog-card" href="/blogs/why-your-rag-keeps-lying-to-you-and-how-to-make-it-stop" style="text-decoration:none;">
-            
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">Why Your RAG Keeps Lying to You (And How to Make It Stop)</h3>
-              <div class="blog-card-meta"><span>Jul 2026</span><span class="dot-sep"></span><span>11 min read</span><span class="dot-sep"></span><span>0 views</span></div>
-              <p class="blog-card-excerpt">A field guide to fixing hallucinations in a retrieval system — written for people who don&#39;t want a PhD to follow along.</p>
-              
-            </div>
-          </a>
-          <a class="blog-card" href="/blogs/nobody-cares-who-wrote-the-code-they-care-if-it-breaks" style="text-decoration:none;">
-            
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">Nobody Cares Who Wrote the Code. They Care If It Breaks.</h3>
-              <div class="blog-card-meta"><span>Jul 2026</span><span class="dot-sep"></span><span>11 min read</span><span class="dot-sep"></span><span>0 views</span></div>
-              <p class="blog-card-excerpt">How to keep vibe-coded software reliable, secure, and maintainable — a working engineer&#39;s field guide to the guardrails that actually matter.</p>
-              
-            </div>
-          </a>
-          <a class="blog-card" href="/blogs/conda-installation-and-setup-guide-linux" style="text-decoration:none;">
-            
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">Conda Installation and Setup Guide (Linux)</h3>
-              <div class="blog-card-meta"><span>Jul 2026</span><span class="dot-sep"></span><span>4 min read</span><span class="dot-sep"></span><span>1 views</span></div>
-              <p class="blog-card-excerpt">A step-by-step guide to installing and setting up Conda/Anaconda on Linux under your own home directory instead of a root-owned install.</p>
-              
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
+    <img class="article-cover" src="/images/1784816711476-llm-for-scratch.jpeg" alt="LLM from Scratch">
 
-    <section style="padding: 0 24px 48px;">
+    <article class="article-body">
+      <div class="markdown-content"><p>During the AISS 2025 session, I delivered a hands-on walkthrough of Sebastian Raschka&#39;s &quot;LLMs from Scratch&quot; GitHub implementation (Chapters 2–5) to help participants understand the internal workings of GPT-style Large Language Models. The session covered the complete pipeline, starting with tokenization and dataset preparation using sliding windows for next-token prediction, followed by an explanation of embeddings, positional encodings, self-attention, multi-head attention, feed-forward networks, layer normalization, and transformer blocks. I demonstrated how GPT models learn by predicting one token at a time and explained why next-token prediction forms the foundation of applications such as chatbots, summarization, translation, and code generation. Participants were also introduced to the GPT model architecture, text generation process, and the role of pretrained weights in model inference. The session emphasized understanding the underlying concepts and implementation details rather than treating LLMs as black-box systems, enabling participants to build a strong conceptual foundation in Transformer-based language models.</p>
+</div>
+    </article>
+
+    
+
+    <section style="padding: 48px 24px 48px;">
       <div class="container">
         
   <footer class="footer">
