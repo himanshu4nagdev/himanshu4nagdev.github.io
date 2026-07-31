@@ -4,9 +4,13 @@
   <script>(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — Himanshu Nagdev</title>
-  <meta name="description" content="Writing on AI infrastructure, MLOps and building things that ship, by Himanshu Nagdev.">
-  <link rel="canonical" href="https://himanshunagdev.in/blogs">
+  <title>[Draft] Integrating BL Touch with Ender 3 old board — Blog | Himanshu Nagdev</title>
+  <meta name="description" content="">
+  <meta property="og:title" content="[Draft] Integrating BL Touch with Ender 3 old board">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="article">
+  
+  <link rel="canonical" href="https://himanshunagdev.in/blogs/draft-integrating-bl-touch-with-ender-3-old-board">
   <link rel="icon" href="/images/1784812640498-him.jpg">
   <style>
     :root {
@@ -1274,59 +1278,42 @@
   </header>
 
   <main>
-    <section class="page-header">
-      <div class="container">
-        <span class="accent-line"></span>
-        <h2 class="section-title">Blog</h2>
-        <p class="section-lead">Writing on AI infrastructure, MLOps and building things that ship.</p>
+    <div class="article-header">
+      <a href="/blogs" class="back-link" style="display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-weight:600;font-size:0.92rem;margin-bottom:24px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back to Blog
+      </a>
+      <h1>[Draft] Integrating BL Touch with Ender 3 old board</h1>
+      <div class="article-meta">
+        <span>July 31, 2026</span><span class="dot-sep"></span>
+        <span>1 min read</span>
+        <span class="dot-sep"></span>
+        <span>0 views</span>
       </div>
-    </section>
+      
+    </div>
 
-    <section class="section" style="padding-top:0;">
-      <div class="container">
-        
-        <div class="blog-grid">
-          <a class="blog-card" href="/blogs/draft-integrating-bl-touch-with-ender-3-old-board" style="text-decoration:none;">
-            
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">[Draft] Integrating BL Touch with Ender 3 old board</h3>
-              <div class="blog-card-meta"><span>Jul 2026</span><span class="dot-sep"></span><span>1 min read</span><span class="dot-sep"></span><span>0 views</span></div>
-              <p class="blog-card-excerpt"></p>
-              
-            </div>
-          </a>
-          <a class="blog-card" href="/blogs/why-your-rag-keeps-lying-to-you-and-how-to-make-it-stop" style="text-decoration:none;">
-            
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">Why Your RAG Keeps Lying to You (And How to Make It Stop)</h3>
-              <div class="blog-card-meta"><span>Jul 2026</span><span class="dot-sep"></span><span>11 min read</span><span class="dot-sep"></span><span>6 views</span></div>
-              <p class="blog-card-excerpt">A field guide to fixing hallucinations in a retrieval system — written for people who don&#39;t want a PhD to follow along.</p>
-              
-            </div>
-          </a>
-          <a class="blog-card" href="/blogs/nobody-cares-who-wrote-the-code-they-care-if-it-breaks" style="text-decoration:none;">
-            
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">Nobody Cares Who Wrote the Code. They Care If It Breaks.</h3>
-              <div class="blog-card-meta"><span>Jul 2026</span><span class="dot-sep"></span><span>11 min read</span><span class="dot-sep"></span><span>3 views</span></div>
-              <p class="blog-card-excerpt">How to keep vibe-coded software reliable, secure, and maintainable — a working engineer&#39;s field guide to the guardrails that actually matter.</p>
-              
-            </div>
-          </a>
-          <a class="blog-card" href="/blogs/conda-installation-and-setup-guide-linux" style="text-decoration:none;">
-            
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">Conda Installation and Setup Guide (Linux)</h3>
-              <div class="blog-card-meta"><span>Jul 2026</span><span class="dot-sep"></span><span>4 min read</span><span class="dot-sep"></span><span>5 views</span></div>
-              <p class="blog-card-excerpt">A step-by-step guide to installing and setting up Conda/Anaconda on Linux under your own home directory instead of a root-owned install.</p>
-              
-            </div>
-          </a>
+    
+
+    <article class="article-body"><p>I was fed up with my printer to wherever i move i had to recalibrate it .</p><p>I came to know bed leveler is the corret choice&nbsp;</p><p>But after purchasing it . I recently started i realized it was ment for new ender 3 boards not mine one that i purchased year 2020&nbsp;</p><p>and literally i dont understand why these product people document the steps to setup on same</p><p>From here and there i came to know i would have to purchase one more hardware&nbsp;</p><p>as shown below </p><p><img src="/images/1785496486081-image.png"></p><p>but wiring them out was another pain in the ass and you can easily find that in product page</p><p>Do note while pulling wires here and there in that process you may disturb power cable on board . So , keep the note of that as well durring that process otherwise you will also end up purchasing new smps like me </p><p>If creality not belongs to the country you are residing i would recommend you to purchase smps locally available at cheap rate and reuse its front part</p><p>Now the work doesnt end here with wiring we have to upload the firmware for BL touch also in ender 3 board . Although i will use arduino but with the way as shown in below photos </p><p><img src="/images/1785496800108-image.png"></p><p><img src="/images/1785496824056-image.png"></p><p><img src="/images/1785496871753-image.png"></p><p><img src="/images/1785496912668-image.png"></p><p>while going through all this i came to know </p></article>
+
+    <div class="share-row">
+      <span>Share this post:</span>
+      <a class="btn btn-secondary" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fhimanshunagdev.in%2Fblogs%2Fdraft-integrating-bl-touch-with-ender-3-old-board" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-secondary" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fhimanshunagdev.in%2Fblogs%2Fdraft-integrating-bl-touch-with-ender-3-old-board&amp;text=%5BDraft%5D%20Integrating%20BL%20Touch%20with%20Ender%203%20old%20board" target="_blank" rel="noopener">X / Twitter</a>
+    </div>
+
+    <div class="article-cta">
+      <div class="work-cta">
+        <p>Enjoyed this? I help teams ship production-grade AI deployments, CI/CD pipelines and MLOps. Let's talk.</p>
+        <div class="btn-group">
+          <a class="btn btn-primary" href="https://topmate.io/himanshu_nagdev" target="_blank" rel="noopener">Book a 1:1 on Topmate</a>
+          <a class="btn btn-secondary" href="/blogs">More posts</a>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section style="padding: 0 24px 48px;">
+    <section style="padding: 48px 24px 48px;">
       <div class="container">
         
   <footer class="footer">
